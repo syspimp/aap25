@@ -7,14 +7,14 @@ This uses ansible to:
 - deploy a complete aap 2.5 cluster in the namespace in 15 mins
 - apply "config as code" to configure the new aap cluster
 
-1. [Download the openshift cli client binary 'oc'](https://access.redhat.com/downloads/content/290/ver=4.18/rhel---9/4.18.11/x86_64/product-software)
+1. [Download the openshift cli client binary 'oc'](https://access.redhat.com/downloads/content/290/ver=4.18/rhel---9/4.18.11/x86_64/product-software), you'll need it to interact with the Openshift cluster. Skip if you already have it, or just want to import/exporting from a vm/bare-metal deployment
 2. log into your cluster with oc: oc login
-3. [get your redhat automation hub token](https://console.redhat.com/ansible/automation-hub/token)
+3. [get your redhat automation hub token](https://console.redhat.com/ansible/automation-hub/token), you'll need this to download the ansible collections from the redhat hub in step 7.
 4. !!! COPY ansible.cfg.example to ansible.cfg and update with your token
 
 `cp ansible.cfg.example ansible.cfg`
 
-5. [Create and download/export manifest that contains your subscription entitlements](https://access.redhat.com/management/subscription_allocations)
+5. [Create and download/export manifest that contains your subscription entitlements](https://access.redhat.com/management/subscription_allocations) you need a license to use aap. this will be posted and the eula accepted
 6. copy the manifest to files/manifest.zip
 7. install the required ansible collections: ansible-galaxy install -r requirements.yml
 
@@ -29,6 +29,10 @@ This uses ansible to:
 9. [OPTIONAL BUT RECOMMENDED] encrypt your secrets file: ansible-vault encrypt group_vars/all.yml . Type in a password twice. This is your vault password for this repo. It doesn't have to match the vault_pass variable in group_vars/all.yml. That is used for a credential to unlock another repo.
 
 `ansible-vault encrypt group_vars/all.yml`
+
+encrypt your manifest, too, while you're at it. Type the same password as above twice.
+
+`ansible-vault encrypt files/manifest.zip`
 
 10. run "ansible-playbook deploy-entitle-import.yml" to deploy a ansible automation platform 2.5 cluster named 'aap25' into the 'aap' namespace (defaults) on your openshift cluster
 11. \[OPTIONAL BUT RECOMMENDED\] run "ansible-playbook --ask-vault-pass deploy-entitle-import.yml" to unencrypt the secrets for the run. type in your vault password.
