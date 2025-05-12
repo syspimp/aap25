@@ -1,0 +1,440 @@
+---
+schedules:
+-   description: Automatically Generated Schedule
+    diff_mode: null
+    enabled: true
+    execution_environment: null
+    extra_data:
+        days: '120'
+    forks: null
+    inventory: null
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: Cleanup Job Schedule
+    natural_key:
+        name: Cleanup Job Schedule
+        type: schedule
+        unified_job_template:
+            name: Cleanup Job Details
+            type: system_job_template
+    related:
+        credentials: []
+    rrule: DTSTART:20220908T185849Z RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=SU
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Cleanup Job Details
+        type: system_job_template
+    verbosity: null
+-   description: Automatically Generated Schedule
+    diff_mode: null
+    enabled: true
+    execution_environment: null
+    extra_data:
+        days: '355'
+    forks: null
+    inventory: null
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: Cleanup Activity Schedule
+    natural_key:
+        name: Cleanup Activity Schedule
+        type: schedule
+        unified_job_template:
+            name: Cleanup Activity Stream
+            type: system_job_template
+    related:
+        credentials: []
+    rrule: DTSTART:20220908T185849Z RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=TU
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Cleanup Activity Stream
+        type: system_job_template
+    verbosity: null
+-   description: Cleans out expired browser sessions
+    diff_mode: null
+    enabled: true
+    execution_environment: null
+    extra_data: {}
+    forks: null
+    inventory: null
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: Cleanup Expired Sessions
+    natural_key:
+        name: Cleanup Expired Sessions
+        type: schedule
+        unified_job_template:
+            name: Cleanup Expired Sessions
+            type: system_job_template
+    related:
+        credentials: []
+    rrule: DTSTART:20220908T190058Z RRULE:FREQ=WEEKLY;INTERVAL=1;COUNT=1
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Cleanup Expired Sessions
+        type: system_job_template
+    verbosity: null
+-   description: Removes expired OAuth 2 access and
+        refresh tokens
+    diff_mode: null
+    enabled: true
+    execution_environment: null
+    extra_data: {}
+    forks: null
+    inventory: null
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: Cleanup Expired OAuth 2 Tokens
+    natural_key:
+        name: Cleanup Expired OAuth 2 Tokens
+        type: schedule
+        unified_job_template:
+            name: Cleanup Expired OAuth 2 Tokens
+            type: system_job_template
+    related:
+        credentials: []
+    rrule: DTSTART:20220908T190058Z RRULE:FREQ=WEEKLY;INTERVAL=1;COUNT=1
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Cleanup Expired OAuth 2 Tokens
+        type: system_job_template
+    verbosity: null
+-   description: ''
+    diff_mode: null
+    enabled: false
+    execution_environment: null
+    extra_data: {}
+    forks: null
+    inventory: null
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: refresh labs
+    natural_key:
+        name: refresh labs
+        type: schedule
+        unified_job_template:
+            name: Redhat_Lab
+            organization:
+                name: Default
+                type: organization
+            type: project
+    related:
+        credentials: []
+    rrule: DTSTART;TZID=America/New_York:20221115T201500
+        RRULE:INTERVAL=15;FREQ=MINUTELY
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    verbosity: null
+-   description: ''
+    diff_mode: null
+    enabled: false
+    execution_environment: null
+    extra_data: {}
+    forks: null
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: Monitoring Refresh
+    natural_key:
+        name: Monitoring Refresh
+        type: schedule
+        unified_job_template:
+            name: Monitoring - Refresh
+            organization:
+                name: Default
+                type: organization
+            type: job_template
+    related:
+        credentials: []
+    rrule: DTSTART;TZID=America/New_York:20230114T194500
+        RRULE:INTERVAL=1;FREQ=DAILY
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Monitoring - Refresh
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    verbosity: null
+-   description: ''
+    diff_mode: null
+    enabled: false
+    execution_environment: null
+    extra_data: {}
+    forks: null
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: Tesla - Sync videos to storage (moved to cron)
+    natural_key:
+        name: Tesla - Sync videos to storage (moved
+            to cron)
+        type: schedule
+        unified_job_template:
+            name: Tesla - Sync videos to storage
+            organization:
+                name: Default
+                type: organization
+            type: job_template
+    related:
+        credentials: []
+    rrule: DTSTART;TZID=America/New_York:20230610T010000
+        RRULE:INTERVAL=1;FREQ=HOURLY
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Tesla - Sync videos to storage
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    verbosity: null
+-   description: ''
+    diff_mode: null
+    enabled: true
+    execution_environment: null
+    extra_data:
+        content_view: Base
+        environments:
+        - production
+        publish: 'yes'
+    forks: null
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: sat6 - make new base view from repo sync
+    natural_key:
+        name: sat6 - make new base view from repo sync
+        type: schedule
+        unified_job_template:
+            name: Satellite - Promote Content View through
+                several environments
+            organization:
+                name: Default
+                type: organization
+            type: job_template
+    related:
+        credentials: []
+    rrule: DTSTART;TZID=America/New_York:20240702T000000
+        RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=MO
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Satellite - Promote Content View through
+            several environments
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    verbosity: null
+-   description: ''
+    diff_mode: null
+    enabled: true
+    execution_environment: null
+    extra_data: {}
+    forks: null
+    inventory:
+        name: Smart Inventory for Firstboots
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: Keepalive for Redhat CDN offline token
+    natural_key:
+        name: Keepalive for Redhat CDN offline token
+        type: schedule
+        unified_job_template:
+            name: Redhat CDN keepalive
+            organization:
+                name: Default
+                type: organization
+            type: job_template
+    related:
+        credentials: []
+    rrule: DTSTART;TZID=America/New_York:20241214T113000
+        RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=SA
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Redhat CDN keepalive
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    verbosity: null
+-   description: ''
+    diff_mode: null
+    enabled: true
+    execution_environment: null
+    extra_data: {}
+    forks: null
+    inventory:
+        name: Localhost
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: Check miner cron
+    natural_key:
+        name: Check miner cron
+        type: schedule
+        unified_job_template:
+            name: Check antminer
+            organization:
+                name: Default
+                type: organization
+            type: job_template
+    related:
+        credentials: []
+    rrule: DTSTART;TZID=America/New_York:20241217T050000
+        RRULE:INTERVAL=1;FREQ=HOURLY
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Check antminer
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    verbosity: null
+-   description: ''
+    diff_mode: null
+    enabled: true
+    execution_environment: null
+    extra_data: {}
+    forks: null
+    inventory:
+        name: Smart Inventory for Raspberry Pi
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: Clean tesla videos cron
+    natural_key:
+        name: Clean tesla videos cron
+        type: schedule
+        unified_job_template:
+            name: Clean tesla videos
+            organization:
+                name: Default
+                type: organization
+            type: job_template
+    related:
+        credentials: []
+    rrule: DTSTART;TZID=America/New_York:20241217T053000
+        RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=SU
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Clean tesla videos
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    verbosity: null
+-   description: ''
+    diff_mode: null
+    enabled: true
+    execution_environment: null
+    extra_data: {}
+    forks: null
+    inventory:
+        name: Smart Inventory for Raspberry Pi
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: null
+    job_tags: null
+    job_type: null
+    limit: null
+    name: Clean Ring videos cron
+    natural_key:
+        name: Clean Ring videos cron
+        type: schedule
+        unified_job_template:
+            name: Clean Ring camera security videos
+            organization:
+                name: Default
+                type: organization
+            type: job_template
+    related:
+        credentials: []
+    rrule: DTSTART;TZID=America/New_York:20241217T054500
+        RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=SU
+    scm_branch: null
+    skip_tags: null
+    timeout: null
+    unified_job_template:
+        name: Clean Ring camera security videos
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    verbosity: null
+...

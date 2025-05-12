@@ -1,0 +1,33 @@
+---
+# this is an example only
+# passwords are encrypted and not exported, so credentials/secrets structure are not complete on export
+# as written here, this will almost always error out on importing credentials and other secrets
+- hosts: localhost
+  connection: local
+  vars:
+    oldtower: old-and-busted.example.com
+    olduser: admin
+    oldpass: "{{ tower_pass }}"
+    newtower: new-hotness.example.com
+    newuser: admin
+    newpass: "{{ new_tower_pass }}"
+  collections:
+    - ansible.controller
+  tasks:
+  - name: Export cred type assets from old controller
+    ansible.controller.export:
+      controller_host: "{{ oldtower }}"
+      controller_username: "{{ olduser }}"
+      controller_password: "{{ oldpass }}"
+      validate_certs: false
+      credential_types: all
+    register: export_output
+
+  - name: Import cred type assets from our export into new controller
+    ansible.controller.import:
+      controller_host: "{{ newtower }}"
+      controller_username: "{{ newuser }}"
+      controller_password: "{{ newpass }}"
+      validate_certs: false
+      assets: "{{ export_output.assets }}"
+

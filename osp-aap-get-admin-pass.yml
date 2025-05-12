@@ -1,0 +1,51 @@
+---
+# copy up the manifest containing the aap entitlement, accept the eula
+# grabs the admin password from openshift secrets if onscp == yes
+# requires the oc binary on the host to be logged into openshift with the proper permissions
+# requires the entitlement manifest in files/manifest.zip
+# generate manifest at https://access.redhat.com/management/subscription_allocations
+# encrypt the manifest with: ansible-vault encrypt files/manifest.zip
+# TODO: log in and grab admin password via k8s ansible modules
+# USAGE: ansible-playbook --ask-vault-password -e 'tower_host=youraap.example.com tower_onosp=yes' ./aap25-entitle.yml
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  # list of variables used in this playbook
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"
+    tower_domain: "{{ tower.domain }}"
+  tasks:
+  - name: grab the admin password for aap
+    shell: |
+      oc get secret {{ tower_osp_deployment_name }}-admin-password -n {{ tower_osp_project }} -o go-template --template="{{ '{{' }}.data.password|base64decode{{ '}}' }}"
+    register: tower_pass
+
+  - name: grab the controller admin password for aap
+    shell: |
+      oc get secret {{ tower_osp_deployment_name }}-controller-admin-password -n {{ tower_osp_project }} -o go-template --template="{{ '{{' }}.data.password|base64decode{{ '}}' }}"
+    register: controller_pass
+
+  - name: grab the hub admin password for aap
+    shell: |
+      oc get secret {{ tower_osp_deployment_name }}-hub-admin-password -n {{ tower_osp_project }} -o go-template --template="{{ '{{' }}.data.password|base64decode{{ '}}' }}"
+    register: hub_pass
+
+  - name: "gateway admin pass for aap gui access"
+    debug:
+      msg: |
+        https://{{ tower_osp_deployment_name }}-{{ tower_osp_project }}.apps.{{ tower_domain }}
+        {{ tower_pass.stdout }}
+
+  - name: "controller admin pass for aap controller api access"
+    debug:
+      msg: |
+        https://{{ tower_osp_deployment_name }}-controller-{{ tower_osp_project }}.apps.{{ tower_domain }}/api
+        {{ controller_pass.stdout }}
+
+  - name: "hub admin pass for aap hub api access"
+    debug:
+      msg: |
+        https://{{ tower_osp_deployment_name }}-hub-{{ tower_osp_project }}.apps.{{ tower_domain }}/api
+        {{ hub_pass.stdout }}
+

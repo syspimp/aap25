@@ -1,0 +1,109 @@
+---
+users:
+-   email: ''
+    first_name: devs
+    is_superuser: false
+    is_system_auditor: false
+    last_name: ''
+    natural_key:
+        type: user
+        username: devs
+    password: "{{ users.admin.pass }}"
+    related:
+        roles:
+        -   content_object:
+                name: Borg
+                type: organization
+            name: Member
+            type: role
+        -   content_object:
+                name: Borgs
+                organization:
+                    name: Borg
+                    type: organization
+                type: team
+            name: Member
+            type: role
+        -   content_object:
+                name: Developers
+                organization:
+                    name: Borg
+                    type: organization
+                type: team
+            name: Member
+            type: role
+    username: devs
+-   email: ''
+    first_name: Jean Luc
+    is_superuser: true
+    is_system_auditor: false
+    last_name: Picard
+    natural_key:
+        type: user
+        username: picard
+    password: "{{ users.admin.pass }}"
+    related:
+        roles:
+        -   content_object:
+                name: Borg
+                type: organization
+            name: Member
+            type: role
+        -   name: System Administrator
+            type: role
+    username: picard
+-   email: engineer1@example.com
+    first_name: Chief Miles
+    is_superuser: false
+    is_system_auditor: false
+    last_name: Obrien
+    natural_key:
+        type: user
+        username: engineer1
+    password: "{{ users.admin.pass }}"
+    related:
+        roles:
+        -   content_object:
+                name: Default
+                type: organization
+            name: Member
+            type: role
+        -   content_object:
+                name: RTO
+                organization:
+                    name: Default
+                    type: organization
+                type: team
+            name: Member
+            type: role
+        -   name: System Administrator
+            type: role
+    username: engineer1
+-   email: archie@example.com
+    first_name: Archie
+    is_superuser: true
+    is_system_auditor: false
+    last_name: Tech
+    natural_key:
+        type: user
+        username: archie
+    password: "{{ users.admin.pass }}"
+    related:
+        roles:
+        -   content_object:
+                name: Default
+                type: organization
+            name: Member
+            type: role
+        -   content_object:
+                name: RTO
+                organization:
+                    name: Default
+                    type: organization
+                type: team
+            name: Member
+            type: role
+        -   name: System Administrator
+            type: role
+    username: archie
+...

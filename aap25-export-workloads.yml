@@ -1,0 +1,264 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"
+    tower_domain: "{{ tower.domain }}"
+    tower_host: "{{ tower_osp_deployment_name }}-controller-{{ tower_osp_project }}.apps.{{ tower_domain }}"
+    tower_user: "{{ tower.user }}"
+    tower_pass: "{{ tower.pass }}"
+    backups: "{{ playbook_dir }}/{{ tower_host }}"
+    backupallinone: no
+    filetype: yml
+    backupprefix: "{{ tower_host }}-{{ now(utc=true,fmt='%Y-%m-%d') }}"
+  environment:
+    #CONTROLLER_HOST: "https://{{ tower_host }}"
+    #CONTROLLER_USERNAME: "{{ tower_user }}"
+    #CONTROLLER_PASSWORD: "{{ tower_pass }}"
+    #CONTROLLER_VERIFY_SSL: false
+    TOWER_HOST: "https://{{ tower_host }}"
+    TOWER_USERNAME: "{{ tower_user }}"
+    TOWER_PASSWORD: "{{ tower_pass }}"
+    TOWER_VERIFY_SSL: false
+  collections:
+    - ansible.controller
+  gather_facts: no
+  tasks:
+  - name: "create save directory"
+    file:
+      path: "{{ backups }}"
+      state: directory
+    become: yes
+
+  - name: Export all assets in one file from old controller
+    ansible.controller.export:
+      all: 'true'
+    register: export_output
+    ignore_errors: yes
+    when: 
+      - backupallinone | bool
+
+  - name: Save the objects
+    copy:
+      content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+      #content: "{{ export_output.assets }}"
+      dest: "{{ backups }}/{{ backupprefix }}-all.{{ filetype }}"
+      mode: 0600
+    become: yes
+    when:
+      - export_output.assets is defined
+      - backupallinone | bool
+
+  - name: handle each object separately
+    block:
+    - name: Export application assets from old controller
+      ansible.controller.export:
+        applications: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-applications.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export cred assets from old controller
+      ansible.controller.export:
+        credentials: all
+      register: export_output
+      ignore_errors: yes
+    
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) | default([],True) }}"
+        #content: "{{ export_output.assets  }}"
+        dest: "{{ backups }}/{{ backupprefix }}-credentials.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export cred types assets from old controller
+      ansible.controller.export:
+        credential_types: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-credential_types.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export ee assets from old controller
+      ansible.controller.export:
+        execution_environments: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-execution_environments.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export inv assets from old controller
+      ansible.controller.export:
+        inventory: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-inventory.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export inv srcs assets from old controller
+      ansible.controller.export:
+        inventory_sources: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-inventory_sources.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export job templates assets from old controller
+      ansible.controller.export:
+        job_templates: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-job_templates.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export notif templates assets from old controller
+      ansible.controller.export:
+        notification_templates: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-notification_templates.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export org assets from old controller
+      ansible.controller.export:
+        organizations: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-organizations.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export projects assets from old controller
+      ansible.controller.export:
+        projects: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-projects.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export schedule assets from old controller
+      ansible.controller.export:
+        schedules: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-schedules.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export team assets from old controller
+      ansible.controller.export:
+        teams: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-teams.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export user assets from old controller
+      ansible.controller.export:
+        users: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-users.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+  
+    - name: Export workflow assets from old controller
+      ansible.controller.export:
+        workflow_job_templates: all
+      register: export_output
+      ignore_errors: yes
+  
+    - name: Save the objects
+      copy:
+        content: "{{ export_output.assets | to_nice_yaml(width=50, explicit_start=true, explicit_end=true) }}"
+        #content: "{{ export_output.assets }}"
+        dest: "{{ backups }}/{{ backupprefix }}-workflow_job_templates.{{ filetype }}"
+        mode: 0600
+      become: yes
+      when: export_output.assets is defined
+    when: (backupallinone | bool) == False

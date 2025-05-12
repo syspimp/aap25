@@ -1,0 +1,322 @@
+---
+teams:
+-   description: ''
+    name: Borgs
+    natural_key:
+        name: Borgs
+        organization:
+            name: Borg
+            type: organization
+        type: team
+    organization:
+        name: Borg
+        type: organization
+    related:
+        roles:
+        -   content_object:
+                name: ESXi - Launch Zenoss Monitoring
+                organization: null
+                type: workflow_job_template
+            name: Execute
+            type: role
+        -   content_object:
+                name: ESXi - Launch NFS server
+                organization:
+                    name: Default
+                    type: organization
+                type: workflow_job_template
+            name: Execute
+            type: role
+-   description: ''
+    name: Developers
+    natural_key:
+        name: Developers
+        organization:
+            name: Borg
+            type: organization
+        type: team
+    organization:
+        name: Borg
+        type: organization
+    related:
+        roles:
+        -   content_object:
+                name: ESXi - Launch Zenoss Monitoring
+                organization: null
+                type: workflow_job_template
+            name: Execute
+            type: role
+        -   content_object:
+                name: ESXi - Launch NFS server
+                organization:
+                    name: Default
+                    type: organization
+                type: workflow_job_template
+            name: Execute
+            type: role
+-   description: ''
+    name: OpenshiftAdmin
+    natural_key:
+        name: OpenshiftAdmin
+        organization:
+            name: CloudOps
+            type: organization
+        type: team
+    organization:
+        name: CloudOps
+        type: organization
+    related:
+        roles: []
+-   description: ''
+    name: OpenshiftDevs
+    natural_key:
+        name: OpenshiftDevs
+        organization:
+            name: CloudOps
+            type: organization
+        type: team
+    organization:
+        name: CloudOps
+        type: organization
+    related:
+        roles: []
+-   description: ''
+    name: DBadmins
+    natural_key:
+        name: DBadmins
+        organization:
+            name: DbOps
+            type: organization
+        type: team
+    organization:
+        name: DbOps
+        type: organization
+    related:
+        roles: []
+-   description: ''
+    name: AppOwners
+    natural_key:
+        name: AppOwners
+        organization:
+            name: Default
+            type: organization
+        type: team
+    organization:
+        name: Default
+        type: organization
+    related:
+        roles: []
+-   description: ''
+    name: Architects
+    natural_key:
+        name: Architects
+        organization:
+            name: Default
+            type: organization
+        type: team
+    organization:
+        name: Default
+        type: organization
+    related:
+        roles:
+        -   content_object:
+                credential_type:
+                    kind: cloud
+                    name: Red Hat Satellite 6
+                    type: credential_type
+                name: Satellite Secret
+                organization:
+                    name: Default
+                    type: organization
+                type: credential
+            name: Admin
+            type: role
+        -   content_object:
+                credential_type:
+                    kind: cloud
+                    name: Amazon Web Services
+                    type: credential_type
+                name: AWS Creds
+                organization:
+                    name: Default
+                    type: organization
+                type: credential
+            name: Admin
+            type: role
+        -   content_object:
+                credential_type:
+                    kind: cloud
+                    name: VMware vCenter
+                    type: credential_type
+                name: compute4 esxi
+                organization:
+                    name: Default
+                    type: organization
+                type: credential
+            name: Admin
+            type: role
+        -   content_object: null
+            name: Admin
+            type: role
+        -   content_object: null
+            name: Admin
+            type: role
+-   description: Infrastructure Engineers
+    name: Infra
+    natural_key:
+        name: Infra
+        organization:
+            name: Default
+            type: organization
+        type: team
+    organization:
+        name: Default
+        type: organization
+    related:
+        roles: []
+-   description: ''
+    name: NOC
+    natural_key:
+        name: NOC
+        organization:
+            name: Default
+            type: organization
+        type: team
+    organization:
+        name: Default
+        type: organization
+    related:
+        roles:
+        -   content_object:
+                credential_type:
+                    kind: cloud
+                    name: Amazon Web Services
+                    type: credential_type
+                name: AWS Creds
+                organization:
+                    name: Default
+                    type: organization
+                type: credential
+            name: Use
+            type: role
+        -   content_object:
+                credential_type:
+                    kind: vault
+                    name: Vault
+                    type: credential_type
+                name: Unlock Vault
+                organization:
+                    name: Default
+                    type: organization
+                type: credential
+            name: Use
+            type: role
+-   description: ''
+    name: Provisioning
+    natural_key:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: team
+    organization:
+        name: Default
+        type: organization
+    related:
+        roles: []
+-   description: ''
+    name: RTO
+    natural_key:
+        name: RTO
+        organization:
+            name: Default
+            type: organization
+        type: team
+    organization:
+        name: Default
+        type: organization
+    related:
+        roles:
+        -   content_object:
+                name: Satellite Clean Group Inventories
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            name: Execute
+            type: role
+        -   content_object:
+                name: Satellite - Generate Reports
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            name: Execute
+            type: role
+        -   content_object:
+                name: Satellite - Make Backup for Server
+                    and Capsules
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            name: Execute
+            type: role
+        -   content_object:
+                name: Satellite - Promote Content View
+                    through several environments
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            name: Execute
+            type: role
+        -   content_object:
+                name: Satellite - Reconfigure Capsule
+                    LB
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            name: Execute
+            type: role
+-   description: Network Engineers
+    name: NetEng
+    natural_key:
+        name: NetEng
+        organization:
+            name: NetOps
+            type: organization
+        type: team
+    organization:
+        name: NetOps
+        type: organization
+    related:
+        roles: []
+-   description: Security Auditors
+    name: SecAudit
+    natural_key:
+        name: SecAudit
+        organization:
+            name: SecOps
+            type: organization
+        type: team
+    organization:
+        name: SecOps
+        type: organization
+    related:
+        roles: []
+-   description: ''
+    name: SecEng
+    natural_key:
+        name: SecEng
+        organization:
+            name: SecOps
+            type: organization
+        type: team
+    organization:
+        name: SecOps
+        type: organization
+    related:
+        roles: []
+...

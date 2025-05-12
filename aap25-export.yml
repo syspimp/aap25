@@ -1,0 +1,21 @@
+---
+- name: Export all assets from old controller
+  ansible.controller.export:
+    controller_host: "{{ oldtower }}"
+    controller_username: "{{ olduser }}"
+    controller_password: "{{ oldpass }}"
+    validate_certs: false
+    all: True
+  register: export_output
+
+#- name: dump the output
+#  debug:
+#    var: export_output
+
+- name: Save the objects
+  copy:
+    content: "{{ export_output.assests }}"
+    dest: "{{ backups }}/{{ oldtower }}/{{ oldtower }}-aap25.yml"
+    mode: 0600
+  become: yes
+

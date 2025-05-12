@@ -1,0 +1,104 @@
+---
+# ascii generated from https://patorjk.com/software/taag/
+# this will install aap on openshift
+# to use, ansible-playbook osp-install-aap.yml
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"
+  collections:
+    - redhat.openshift
+  tasks:
+  - name: SANITY CHECK Grab version of anisble automation platform operator in the namespace, if any
+    shell: "oc get subscription ansible-automation-platform -n {{ tower_osp_project }} -o yaml | grep currentCSV | cut -f2 -d:"
+    register: opversion
+    ignore_errors: yes
+
+  - name: SANITY CHECK Delete subscription to aap in namespace, if any
+    shell: "oc delete subscription ansible-automation-platform -n {{ tower_osp_project }}"
+    when: opversion.stdout != ""
+
+  - name: SANITY CHECK Delete aap cluster service version (aka aap operator), if any
+    shell: "oc delete clusterserviceversion {{ opversion.stdout }} -n {{ tower_osp_project }}"
+    when: opversion.stdout != ""
+
+  - name: SANITY CHECK Destroy the namespace, if any
+    redhat.openshift.k8s:
+      name: "{{ tower_osp_project }}"
+      api_version: v1
+      kind: Namespace
+      state: absent
+      wait: true
+
+  - name: Installing AAP on Openshift, takes 15 mins
+    debug:
+      msg: |
+         _█████╗  █████╗ ██████╗      ██████╗ ███╗   ██╗     ██████╗ ██████╗ ███████╗███╗   ██╗███████╗██╗  ██╗██╗███████╗████████╗
+         ██╔══██╗██╔══██╗██╔══██╗    ██╔═══██╗████╗  ██║    ██╔═══██╗██╔══██╗██╔════╝████╗  ██║██╔════╝██║  ██║██║██╔════╝╚══██╔══╝
+         ███████║███████║██████╔╝    ██║   ██║██╔██╗ ██║    ██║   ██║██████╔╝█████╗  ██╔██╗ ██║███████╗███████║██║█████╗     ██║   
+         ██╔══██║██╔══██║██╔═══╝     ██║   ██║██║╚██╗██║    ██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║╚════██║██╔══██║██║██╔══╝     ██║   
+         ██║  ██║██║  ██║██║         ╚██████╔╝██║ ╚████║    ╚██████╔╝██║     ███████╗██║ ╚████║███████║██║  ██║██║██║        ██║   
+         ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝          ╚═════╝ ╚═╝  ╚═══╝     ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝  
+                                                  
+  - name: Create the namespace for aap
+    redhat.openshift.k8s:
+      name: "{{ tower_osp_project }}"
+      api_version: v1
+      kind: Namespace
+      state: present
+      wait: true
+
+  - name: Subscribe to the aap operator
+    redhat.openshift.k8s:
+      state: present
+      # for static files
+      #src: subscribe-to-operator.yml
+      # this has variables to replace
+      definition: "{{ lookup('template', 'subscribe-to-operator.yml.j2') }}"
+      wait: true
+
+  - name: wait a few seconds for the work to be scheduled
+    pause:
+      seconds: 10
+
+  - name: Wait until the operator is installed
+    shell: oc get csv -n {{ tower_osp_project }}| grep aap-operator | grep Succeeded
+    register: isitfinished
+    retries: "30"
+    delay: "10"
+    until: isitfinished.stdout.find("Succeeded") != -1
+
+  - name: Create the admin secrets
+    redhat.openshift.k8s:
+      state: present
+      namespace: "{{ tower_osp_project }}"
+      definition: "{{ lookup('template', 'aap25-{{ item }}-password.yml.j2') }}"
+      wait: true
+    loop:
+      - admin
+      - hub-admin
+      - controller-admin
+      - eda-admin
+
+  - name: Deploy aap cluster from template
+    redhat.openshift.k8s:
+      state: present
+      definition: "{{ lookup('template', 'deploy-aap25-cluster.yml.j2') }}"
+      wait: true
+
+  - name: Wait until the pods are ready
+    shell: oc get pods -n {{ tower_osp_project }} | grep {{ tower_osp_deployment_name }}-hub-api | grep Running
+    register: isitfinished
+    retries: "20"
+    delay: "60"
+    until: isitfinished.stdout.find("Running") != -1
+
+  - name: Cluster is almost ready
+    debug:
+      msg: "Almost ready, lets wait a minute for the dust to settle"
+
+  - name: Wait 3 minutes for the cluster services to finish self-configuration
+    pause:
+      minutes: 3

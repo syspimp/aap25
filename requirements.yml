@@ -1,0 +1,9 @@
+---
+# to install, ansible-galaxy install -r requirements.yml
+collections:
+  - name: redhat.openshift
+    version: ">=4.0.1"
+  - name: kubernetes.core
+    version: ">=5.2.0"
+  - name: ansible.controller
+    version: ">=4.6.11"

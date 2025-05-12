@@ -1,0 +1,24 @@
+# https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.5/html/installing_on_openshift_container_platform/appendix-operator-crs_performance-considerations#appendix-operator-crs_performance-considerations
+# this is an eample of how to modify the settings of a running cluster
+# the ALLOW_LOCAL_RESOURCE_MANAGEMENT flag in /etc/tower/settings.py
+# controls the ability to update users/orgs/credentials via the api
+# you might want to disable that after deployment
+# disable by settings the values below to False
+---
+apiVersion: aap.ansible.com/v1alpha1
+kind: AnsibleAutomationPlatform
+metadata:
+  name: aap25
+spec:
+  controller:
+    extra_settings:
+      - setting: ALLOW_LOCAL_RESOURCE_MANAGEMENT
+        value: 'True'
+  eda:
+    extra_settings:
+      - setting: EDA_ALLOW_LOCAL_RESOURCE_MANAGEMENT
+        value: '@bool True'
+  hub:
+    pulp_settings:
+      ALLOW_LOCAL_RESOURCE_MANAGEMENT: True
+

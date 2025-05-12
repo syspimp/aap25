@@ -1,0 +1,93 @@
+---
+# these secrets will be used to configure the deployment and populate the templated app 2.5 example configuration.
+# configure your users first
+# users.admin.pass will be the admin password used everywhere in this example
+users:
+  admin:
+    user: root
+    pass: yoursecrethere
+    sshkey: |
+      yoursecrethere
+  # below are specific to the example config
+  # the name of the automation
+  automation:
+    user: ansiblesvc
+    pass: anothersecrethere
+    sshkey: |
+      yoursecrethere
+  # shared key used for vm deployment method
+  aap25install:
+    sshkey: |
+      yoursecrethere
+
+# configure the deployment
+# this is really the important part for the deployment
+tower:
+  # are we deploying on openshift?
+  onosp: yes
+  # objects to be imported have a prefix in this example, ie example-backup-credentials_type.yml
+  backupprefix: example-backup
+  # the name of the cluster to deploy
+  deployment: aap25
+  # the project to manage within openshift
+  # IMPORTANT: this namespace is destroyed and recreated and is managed by this playbook.
+  # DONT USE A NAMEDSPACE IN USE, THIS IS A DESTRUCTIVE ACT
+  project: aap
+  # domain of your Openshift Cluster
+  domain: openshift-cluster.example.com
+  # the admin user/pass to set and use for the platform
+  user: admin
+  pass: "{{ users.admin.pass }}"
+
+
+# below is related to this example only
+# it is for educational purposes
+
+# this is your access.redhat.com user/pass and api token. 
+# check the README for more info
+rhsm:
+  user: redhatuser
+  pass: yoursecrethere
+  token: jklhjkhhjkerbjkknn
+
+# used to access the redhat cdn automation hub, check README
+automationapi:
+  token: jklhjhjhjkhkhgksghvkjk
+
+# this is unlock valut credential within aap
+vault_pass: yoursecrethere
+
+# for various credentials needed for playbooks
+sat6:
+  host: satellite.example.com
+  user: admin
+  pass: yoursecrethere
+docker:
+  user: captahab
+  pass: yoursecrethere
+gcp:
+  project: redhat-rocks
+  user: ansible-platform@redhat-rocks-xxxxx.iam.gserviceaccount.com
+  sshkey: |
+    yoursecrethere
+aws:
+  access: yoursecrethere
+  secret: yoursecrethere
+# credententials for various hosts
+compute6:
+  host: 11.22.33.44
+  user: "{{ users.admin.user }}"
+  pass: "{{ users.admin.pass }}"
+  sshkey: "{{ users.admin.sshkey }}"
+compute7:
+  host: 11.22.33.45
+  user: "{{ users.admin.user }}"
+  pass: "{{ users.admin.pass }}"
+  sshkey: "{{ users.admin.sshkey }}"
+raspberrypi:
+  user: pi
+  pass: "{{ users.admin.pass }}"
+# to set up notifications within tower
+ifttt:
+  key: yoursecrethere
+  trigger: ansible_platform

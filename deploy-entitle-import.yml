@@ -1,0 +1,61 @@
+---
+# ascii generated from https://patorjk.com/software/taag/
+- name: Deploy aap cluster on openshift and configure
+  hosts: localhost
+  gather_facts: no
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"
+  tasks:
+    - name: this will deploy an aap 2.5 cluster on openshift and configure it
+      debug:
+        msg: |
+          ██████╗ ███████╗██████╗ ██╗  ██╗ █████╗ ████████╗
+          ██╔══██╗██╔════╝██╔══██╗██║  ██║██╔══██╗╚══██╔══╝
+          ██████╔╝█████╗  ██║  ██║███████║███████║   ██║   
+          ██╔══██╗██╔══╝  ██║  ██║██╔══██║██╔══██║   ██║   
+          ██║  ██║███████╗██████╔╝██║  ██║██║  ██║   ██║   
+          ╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   
+
+    - name: display parameters
+      debug:
+        msg: |
+          Deploying cluster named {{ tower_osp_deployment_name }} 
+          into project/namespace {{ tower_osp_project }}
+
+- name: deploy the cluster
+  ansible.builtin.import_playbook: osp-install-aap.yml
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"
+
+- name: entitle the cluster via the gateway
+  ansible.builtin.import_playbook: aap25-entitle.yml
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"
+    tower_domain: "{{ tower.domain }}"
+    tower_host: "{{ tower_osp_deployment_name }}-{{ tower_osp_project }}.apps.{{ tower_domain }}"
+    tower_onosp: yes
+
+- name: the cluster is running
+  ansible.builtin.import_playbook: osp-aap-get-admin-pass.yml
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"
+
+- name: import the workloads into controller
+  ansible.builtin.import_playbook: aap25-import-workloads.yml
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"
+    tower_domain: "{{ tower.domain }}"
+    tower_host: "{{ tower_osp_deployment_name }}-controller-{{ tower_osp_project }}.apps.{{ tower_domain }}"
+    tower_onosp: yes
+    backupprefix: example-backup
+
+- name: the cluster is complete
+  ansible.builtin.import_playbook: osp-aap-get-admin-pass.yml
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"

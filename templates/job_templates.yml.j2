@@ -1,0 +1,5715 @@
+---
+job_templates:
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: aap25-controller*
+    name: AAP25 run install
+    natural_key:
+        name: AAP25 run install
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: aap25-install.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: cloud
+                name: AAP25 Install ssh key
+                type: credential_type
+            name: AAP25 install ssh key
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: root vm 2025 ssh key only
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: aap25-controller*
+    name: AAP - download distro to filesystem
+    natural_key:
+        name: AAP - download distro to filesystem
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: aap25-download.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: root vm 2025 ssh key only
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: aap25-*
+    name: AAP - yum update control plane
+    natural_key:
+        name: AAP - yum update control plane
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: aap25-yum-update-reboot.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: root vm 2025 ssh key only
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: true
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: true
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: true
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: true
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: "---\nnewusers:\n- newusername: ansiblesvc\n
+        \ newgroups: \"wheel,root\"\n  # provide path
+        to a public keyfile or paste in the pub key\n
+        \ public_key: \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDktYoiYBUJUTZlc0Y2t+u2Y3+T8IAxACbyAxgzREhZBW9GjcC/roP79HxBh+k4M/K2oFYZqRsKWGZVy1+x15SQg3d7Md0k2ADcnB6QOke2m5+brn2RKT+pW7uI7149d+bs3qI4FHP9VawN/vOAEZuwsAwqalvuzEYfKKO1CFRtIus2JUCbFRsE7mKEwdDYEJojSlZ49+s0FH9DDjswz4uq/RlgpvkRECqdLhBSnXLaUW6KBeGaR+1d46bnxUryivFNhgCWb1H5JnRgulZWLiA6/ZzUslzNHDX4iD6a4q2UEGVUyom23OvVhyTXsVD97zi5ydEkSCXClT5/HsBB5UlmAFflgtZNy26Kn33itVnDSmgtzJ5YWk8dpmIx9zzFRoTzlrGVfq/akVY20Ihk5n9Ae+2qOMF80BYclRITEKQEPKQUtP4vJROpK+IgBQUeAOLHqzp55oBLSKl61nA7cI+dcKIDlezOTQLCW+d7uI+mr3Z6cMM5XXrEtJoi8IFkxkSfdYuNDgwJl/Xq9+nmxLPa2g6KvG1fLL2fZynK+BZuOSq1KG/wER8XWizQ4rVWCM9PfiP5OqrmVZPtlBeYvEUho4AajiWXPifRKUp3+3K/inIbyt7LHi5pTcWKenOpGj3c870mxb0VMm+z5d2GurGgJ3A/zJkYht5fkbEg93lIRQ==\"\n-
+        newusername: dataylor\n  newgroups: \"wheel,root\"\n
+        \ # provide path to a public keyfile or paste
+        in the pub key\n  public_key: \"ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnBlcXUd9fJtvocP4O2qkc7kfgYzeJMdQs4YasP1U5JPXPKToHYCGYv8VcheIODlnxI3FjI4AR7G5naH+yw8Ahr1Rgstltr804p/Fh50ict8Lelps0QdaHFW5pGzHjjf9wMBf+juMT950l3Qzg7c/GApXMaigZv9WvhWFwNBnhV6uy6fHCsoU/sb13ld+6uxYleLpA9vfIkV+hI3uMeKRQJ1uvHyGRFqfuVNHcMv1ywvKIRegRhs9l3F9VNnXEKZlJfJExDN+tB+fdjYhGZCVgDE/NnAv5ZLruyVsKZFzH12D8Rd6GJuXmw8zKv9bm3syZI7RlMUtvDp4R/2El+nTnQ==
+        root@socrates.taylorfoundationllc.org\""
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Smart Inventory for Raspberry Pi
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Add Automation Account to Existing Servers
+    natural_key:
+        name: Add Automation Account to Existing Servers
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: create-ansible-user.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: AAP Repo
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: Raspberry Pi Creds
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDktYoiYBUJUTZlc0Y2t+u2Y3+T8IAxACbyAxgzREhZBW9GjcC/roP79HxBh+k4M/K2oFYZqRsKWGZVy1+x15SQg3d7Md0k2ADcnB6QOke2m5+brn2RKT+pW7uI7149d+bs3qI4FHP9VawN/vOAEZuwsAwqalvuzEYfKKO1CFRtIus2JUCbFRsE7mKEwdDYEJojSlZ49+s0FH9DDjswz4uq/RlgpvkRECqdLhBSnXLaUW6KBeGaR+1d46bnxUryivFNhgCWb1H5JnRgulZWLiA6/ZzUslzNHDX4iD6a4q2UEGVUyom23OvVhyTXsVD97zi5ydEkSCXClT5/HsBB5UlmAFflgtZNy26Kn33itVnDSmgtzJ5YWk8dpmIx9zzFRoTzlrGVfq/akVY20Ihk5n9Ae+2qOMF80BYclRITEKQEPKQUtP4vJROpK+IgBQUeAOLHqzp55oBLSKl61nA7cI+dcKIDlezOTQLCW+d7uI+mr3Z6cMM5XXrEtJoi8IFkxkSfdYuNDgwJl/Xq9+nmxLPa2g6KvG1fLL2fZynK+BZuOSq1KG/wER8XWizQ4rVWCM9PfiP5OqrmVZPtlBeYvEUho4AajiWXPifRKUp3+3K/inIbyt7LHi5pTcWKenOpGj3c870mxb0VMm+z5d2GurGgJ3A/zJkYht5fkbEg93lIRQ==
+                    2023-03-16
+                formattedChoices:
+                -   choice: ''
+                    id: 0
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Replace which ssh public
+                    key?
+                required: true
+                type: text
+                variable: public_key
+            -   choices: ''
+                default: ansiblesvc
+                formattedChoices:
+                -   choice: ''
+                    id: 0
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Create and manage which
+                    user?
+                required: true
+                type: text
+                variable: username
+            -   choices: ''
+                default: gen01-test-server
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: apply to which host
+                required: true
+                type: text
+                variable: target
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: true
+    execution_environment:
+        name: Hybrid EE
+        type: execution_environment
+    extra_vars: '---
+
+        EE_TYPE: "hybrid"
+
+        VERBOSE: 3
+
+        USE_CACHE: "--no-cache"
+
+        TAG: "{{ '{{' }} EE_TYPE {{ '}}' }}z7:latest"
+
+        UPSTREAM_REPO: docker.io/syspimp/ansible-ee
+
+        UPSTREAM_TAG: "{{ '{{' }} EE_TYPE {{ '}}' }}"'
+    force_handlers: false
+    forks: 0
+    host_config_key: firstboot
+    inventory:
+        name: Smart Inventory for Firstboots
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: builder*
+    name: Ansible - Build EE environment
+    natural_key:
+        name: Ansible - Build EE environment
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: EE-build-env-tag-and-push.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: AAP Repo
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: cloud
+                name: Docker.io login creds type
+                type: credential_type
+            name: Docker.io creds
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: esxi vms
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        -   credential_type:
+                kind: cloud
+                name: RHSM user pass cred type
+                type: credential_type
+            name: redhat cdn login
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: 'hybrid
+
+                    vmware
+
+                    cisco
+
+                    gcp
+
+                    aws
+
+                    azure
+
+                    ibm
+
+                    builder
+
+                    networking
+
+                    ffmpeg'
+                default: hybrid
+                formattedChoices:
+                -   choice: hybrid
+                    id: 0
+                    isDefault: true
+                -   choice: vmware
+                    id: 1
+                    isDefault: false
+                -   choice: cisco
+                    id: 2
+                    isDefault: false
+                -   choice: gcp
+                    id: 3
+                    isDefault: false
+                -   choice: aws
+                    id: 4
+                    isDefault: false
+                -   choice: azure
+                    id: 5
+                    isDefault: false
+                -   choice: ibm
+                    id: 6
+                    isDefault: false
+                -   choice: builder
+                    id: 7
+                    isDefault: false
+                -   choice: networking
+                    id: 8
+                    isDefault: false
+                -   choice: ffmpeg
+                    id: 9
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: EE type
+                required: true
+                type: multiplechoice
+                variable: EE_TYPE
+            -   choices: ''
+                default: hybridz7:latest
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Tag
+                required: true
+                type: text
+                variable: TAG
+            -   choices: ''
+                default: docker.io/syspimp/ansible-ee
+                formattedChoices:
+                -   choice: ''
+                    id: 0
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: Where shall we
+                    put this?
+                question_name: Upstream repo
+                required: true
+                type: text
+                variable: UPSTREAM_REPO
+            -   choices: ''
+                default: hybrid
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: The final name
+                question_name: Upstream Tag
+                required: true
+                type: text
+                variable: UPSTREAM_TAG
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: true
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: ''
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Smart Inventory for Firstboots
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Aws - Delete Instance
+    natural_key:
+        name: Aws - Delete Instance
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: site.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: Demo Credential
+            organization: null
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: ''
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: IP of server to decommission
+                required: true
+                type: text
+                variable: decommission_me
+            -   choices: ''
+                default: ''
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Requestor name
+                required: true
+                type: text
+                variable: whoareyou
+            -   choices: ''
+                default: ''
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Password
+                required: true
+                type: text
+                variable: passme
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---
+
+        #aws_instance_tags:
+
+        #  Name: dataylor-demo-vm-001
+
+        #awsroles:
+
+        #- section: default
+
+        #  vars:
+
+        #  - name: role
+
+        #    value: haproxy
+
+        #- section: secondary
+
+        #  vars:
+
+        #  - name: role
+
+        #    value: satellite-oscap
+
+        #- section: config
+
+        #  vars:
+
+        #  - name: environment
+
+        #    value: production
+
+        #  - name: dns_domain
+
+        #    value: prod.maskedadmins.com
+
+        #  - name: sat6_location
+
+        #    value: "RTO AWS Location"
+
+        aws_volume_size: 100
+
+        aws_key_name: dataylor-redhat-aws
+
+        aws_instance_type: t3.xlarge
+
+        #aws_instance_type: m4.2xlarge
+
+        #aws_instance_type: m4.xlarge
+
+        host_config_server: 11.22.33.77
+
+        aws_vpc_subnet_id: subnet-03960a62ece2d78dc'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Localhost
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: AWS - Find AMIs
+    natural_key:
+        name: AWS - Find AMIs
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: aws-find-amis.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: dataylor-test
+                max: 25
+                min: 0
+                question_description: ''
+                question_name: Name?
+                required: true
+                type: text
+                variable: aws_vmname
+            -   choices: 't3.medium
+
+                    t3.xlarge
+
+                    m4.xlarge
+
+                    m4.2xlarge'
+                default: t3.xlarge
+                max: null
+                min: null
+                question_description: ''
+                question_name: Instance Size
+                required: true
+                type: multiplechoice
+                variable: aws_instance_type
+            -   choices: ''
+                default: '100'
+                max: 1024
+                min: 0
+                question_description: How big of a volume
+                    for the server, in GB
+                question_name: Disk Size?
+                required: true
+                type: text
+                variable: aws_volume_size
+            -   choices: 'no
+
+                    yes'
+                default: 'no'
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: Add a second disk?
+                required: true
+                type: multiplechoice
+                variable: aws_multivolumes
+            -   choices: ''
+                default: '10'
+                max: 5
+                min: 0
+                question_description: ''
+                question_name: Size of second disk?
+                    In gb
+                required: true
+                type: text
+                variable: aws_volume2_size
+            -   choices: 'ansible-tower
+
+                    ansible-cluster-node
+
+                    ansible-isolated-node
+
+                    firstboot
+
+                    haproxy
+
+                    jboss-standalone
+
+                    minikube
+
+                    nbde-tang-server
+
+                    nbde-clevis-client
+
+                    nfs-server
+
+                    openfire
+
+                    openstack
+
+                    openshift
+
+                    rsyslog-client
+
+                    satellite-capsule
+
+                    satellite-server
+
+                    satellite-oscap
+
+                    satellite-reports
+
+                    snmp-client
+
+                    webconsole
+
+                    zenoss-monitoring'
+                default: firstboot
+                max: null
+                min: null
+                question_description: What ansible role
+                    to apply
+                question_name: Role?
+                required: true
+                type: multiplechoice
+                variable: aws_role
+            -   choices: 'None
+
+                    audit-stig
+
+                    audit-pci
+
+                    audit-tty
+
+                    satellite-oscap
+
+                    zenoss-monitoring
+
+                    nfs-server
+
+                    iscsi-server'
+                default: None
+                max: null
+                min: null
+                question_description: Pick another role
+                    to apply, if desired
+                question_name: Apply Secondary Role?
+                required: true
+                type: multiplechoice
+                variable: aws_secondary_role
+            -   choices: 'development
+
+                    test
+
+                    production'
+                default: production
+                max: null
+                min: null
+                question_description: ''
+                question_name: SDLC Environment?
+                required: true
+                type: multiplechoice
+                variable: sdlc_environment
+            -   choices: 'dev.maskedadmins.com
+
+                    test.maskedadmins.com
+
+                    prod.maskedadmins.com'
+                default: prod.maskedadmins.com
+                max: null
+                min: null
+                question_description: ''
+                question_name: Domain to use?
+                required: true
+                type: multiplechoice
+                variable: dns_domain
+            -   choices: 'TFOUND
+
+                    RTO'
+                default: RTO
+                max: null
+                min: null
+                question_description: ''
+                question_name: AWS Account?
+                required: true
+                type: multiplechoice
+                variable: aws_location
+            -   choices: 'us-east-1a
+
+                    us-east-1b
+
+                    us-east-1-c'
+                default: us-east-1a
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: Availability Zone?
+                required: true
+                type: multiplechoice
+                variable: az
+            -   choices: 'centos7
+
+                    rhel7
+
+                    rhel8'
+                default: rhel7
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: Which OS?
+                required: true
+                type: multiplechoice
+                variable: aws_ostype
+            -   choices: dataylor-redhat-aws
+                default: dataylor-redhat-aws
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: SSH Key to Use?
+                required: true
+                type: multiplechoice
+                variable: aws_key
+            -   choices: ''
+                default: 11.22.33.175
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: IP or FQDN to
+                    use
+                question_name: Callback to which Tower
+                    Server?
+                required: true
+                type: text
+                variable: host_config_server
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: true
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---
+
+        action: hello'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: AWS - Find Instances
+    natural_key:
+        name: AWS - Find Instances
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: aws-find-amis.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: cloud
+                name: Amazon Web Services
+                type: credential_type
+            name: AWS Creds
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment:
+        name: Hybrid EE
+        type: execution_environment
+    extra_vars: '---
+
+        #aws_instance_tags:
+
+        #  Name: dataylor-demo-vm-001
+
+        #awsroles:
+
+        #- section: default
+
+        #  vars:
+
+        #  - name: role
+
+        #    value: haproxy
+
+        #- section: secondary
+
+        #  vars:
+
+        #  - name: role
+
+        #    value: satellite-oscap
+
+        #- section: config
+
+        #  vars:
+
+        #  - name: environment
+
+        #    value: production
+
+        #  - name: dns_domain
+
+        #    value: prod.maskedadmins.com
+
+        #  - name: sat6_location
+
+        #    value: "RTO AWS Location"
+
+        aws_volume_size: 100
+
+        aws_key_name: dataylor-redhat-aws
+
+        aws_instance_type: t3.xlarge
+
+        #aws_instance_type: m4.2xlarge
+
+        #aws_instance_type: m4.xlarge
+
+        host_config_server: 11.22.33.77
+
+        aws_vpc_subnet_id: subnet-03960a62ece2d78dc'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: test123_564dc4e3-fdb4-43fa-d8e9-ace193c3171b
+    name: AWS - Find Port
+    natural_key:
+        name: AWS - Find Port
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: realquick-check.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: ansiblesvc
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: dataylor-test
+                max: 25
+                min: 0
+                question_description: ''
+                question_name: Name?
+                required: true
+                type: text
+                variable: aws_vmname
+            -   choices: 't3.medium
+
+                    t3.xlarge
+
+                    m4.xlarge
+
+                    m4.2xlarge'
+                default: t3.xlarge
+                max: null
+                min: null
+                question_description: ''
+                question_name: Instance Size
+                required: true
+                type: multiplechoice
+                variable: aws_instance_type
+            -   choices: ''
+                default: '100'
+                max: 1024
+                min: 0
+                question_description: How big of a volume
+                    for the server, in GB
+                question_name: Disk Size?
+                required: true
+                type: text
+                variable: aws_volume_size
+            -   choices: 'no
+
+                    yes'
+                default: 'no'
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: Add a second disk?
+                required: true
+                type: multiplechoice
+                variable: aws_multivolumes
+            -   choices: ''
+                default: '10'
+                max: 5
+                min: 0
+                question_description: ''
+                question_name: Size of second disk?
+                    In gb
+                required: true
+                type: text
+                variable: aws_volume2_size
+            -   choices: 'ansible-tower
+
+                    ansible-cluster-node
+
+                    ansible-isolated-node
+
+                    firstboot
+
+                    haproxy
+
+                    jboss-standalone
+
+                    minikube
+
+                    nbde-tang-server
+
+                    nbde-clevis-client
+
+                    nfs-server
+
+                    openfire
+
+                    openstack
+
+                    openshift
+
+                    rsyslog-client
+
+                    satellite-capsule
+
+                    satellite-server
+
+                    satellite-oscap
+
+                    satellite-reports
+
+                    snmp-client
+
+                    webconsole
+
+                    zenoss-monitoring'
+                default: firstboot
+                max: null
+                min: null
+                question_description: What ansible role
+                    to apply
+                question_name: Role?
+                required: true
+                type: multiplechoice
+                variable: aws_role
+            -   choices: 'None
+
+                    audit-stig
+
+                    audit-pci
+
+                    audit-tty
+
+                    satellite-oscap
+
+                    zenoss-monitoring
+
+                    nfs-server
+
+                    iscsi-server'
+                default: None
+                max: null
+                min: null
+                question_description: Pick another role
+                    to apply, if desired
+                question_name: Apply Secondary Role?
+                required: true
+                type: multiplechoice
+                variable: aws_secondary_role
+            -   choices: 'development
+
+                    test
+
+                    production'
+                default: production
+                max: null
+                min: null
+                question_description: ''
+                question_name: SDLC Environment?
+                required: true
+                type: multiplechoice
+                variable: sdlc_environment
+            -   choices: 'dev.maskedadmins.com
+
+                    test.maskedadmins.com
+
+                    prod.maskedadmins.com'
+                default: prod.maskedadmins.com
+                max: null
+                min: null
+                question_description: ''
+                question_name: Domain to use?
+                required: true
+                type: multiplechoice
+                variable: dns_domain
+            -   choices: 'TFOUND
+
+                    RTO'
+                default: RTO
+                max: null
+                min: null
+                question_description: ''
+                question_name: AWS Account?
+                required: true
+                type: multiplechoice
+                variable: aws_location
+            -   choices: 'us-east-1a
+
+                    us-east-1b
+
+                    us-east-1-c'
+                default: us-east-1a
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: Availability Zone?
+                required: true
+                type: multiplechoice
+                variable: az
+            -   choices: 'centos7
+
+                    rhel7
+
+                    rhel8'
+                default: rhel7
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: Which OS?
+                required: true
+                type: multiplechoice
+                variable: aws_ostype
+            -   choices: dataylor-redhat-aws
+                default: dataylor-redhat-aws
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: SSH Key to Use?
+                required: true
+                type: multiplechoice
+                variable: aws_key
+            -   choices: ''
+                default: 11.22.33.175
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: IP or FQDN to
+                    use
+                question_name: Callback to which Tower
+                    Server?
+                required: true
+                type: text
+                variable: host_config_server
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: true
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment:
+        name: AWS EE
+        type: execution_environment
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Localhost
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: AWS - Launch Instances
+    natural_key:
+        name: AWS - Launch Instances
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: launch-aws-vm.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: dataylor-test
+                max: 25
+                min: 0
+                question_description: ''
+                question_name: Name?
+                required: true
+                type: text
+                variable: aws_vmname
+            -   choices:
+                - t3.medium
+                - t3.xlarge
+                - m4.xlarge
+                - m4.2xlarge
+                - m1.large
+                - t2.micro
+                default: t3.xlarge
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Instance Size
+                required: true
+                type: multiplechoice
+                variable: aws_instance_type
+            -   choices: ''
+                default: '100'
+                max: 1024
+                min: 0
+                question_description: How big of a volume
+                    for the server, in GB
+                question_name: Disk Size?
+                required: true
+                type: text
+                variable: aws_volume_size
+            -   choices: 'no
+
+                    yes'
+                default: 'no'
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: Add a second disk?
+                required: true
+                type: multiplechoice
+                variable: aws_multivolumes
+            -   choices: ''
+                default: '10'
+                max: 5
+                min: 0
+                question_description: ''
+                question_name: Size of second disk?
+                    In gb
+                required: true
+                type: text
+                variable: aws_volume2_size
+            -   choices: 'ansible-tower
+
+                    ansible-cluster-node
+
+                    ansible-isolated-node
+
+                    deploy-workshop-workstation
+
+                    firstboot
+
+                    haproxy
+
+                    jboss-standalone
+
+                    minikube
+
+                    nbde-tang-server
+
+                    nbde-clevis-client
+
+                    nfs-server
+
+                    openfire
+
+                    openstack
+
+                    openshift
+
+                    rsyslog-client
+
+                    satellite-capsule
+
+                    satellite-server
+
+                    satellite-oscap
+
+                    satellite-reports
+
+                    snmp-client
+
+                    webconsole
+
+                    zenoss-monitoring'
+                default: firstboot
+                max: null
+                min: null
+                question_description: What ansible role
+                    to apply
+                question_name: Role?
+                required: true
+                type: multiplechoice
+                variable: aws_role
+            -   choices: 'None
+
+                    audit-stig
+
+                    audit-pci
+
+                    audit-tty
+
+                    satellite-oscap
+
+                    zenoss-monitoring
+
+                    minecraft-kube
+
+                    nfs-server
+
+                    iscsi-server
+
+                    leapp-upgrade'
+                default: None
+                max: null
+                min: null
+                question_description: Pick another role
+                    to apply, if desired
+                question_name: Apply Secondary Role?
+                required: true
+                type: multiplechoice
+                variable: aws_secondary_role
+            -   choices: 'development
+
+                    test
+
+                    production'
+                default: production
+                max: null
+                min: null
+                question_description: ''
+                question_name: SDLC Environment?
+                required: true
+                type: multiplechoice
+                variable: sdlc_environment
+            -   choices: 'dev.maskedadmins.com
+
+                    test.maskedadmins.com
+
+                    prod.maskedadmins.com'
+                default: prod.maskedadmins.com
+                max: null
+                min: null
+                question_description: ''
+                question_name: Domain to use?
+                required: true
+                type: multiplechoice
+                variable: dns_domain
+            -   choices: 'TFOUND
+
+                    RTO'
+                default: TFOUND
+                max: null
+                min: null
+                question_description: ''
+                question_name: AWS Account?
+                required: true
+                type: multiplechoice
+                variable: aws_location
+            -   choices: 'us-east-1a
+
+                    us-east-1b
+
+                    us-east-1-c'
+                default: us-east-1a
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: Availability Zone?
+                required: true
+                type: multiplechoice
+                variable: az
+            -   choices:
+                - rhel6
+                - centos7
+                - rhel7
+                - rhel8
+                - fedora40
+                default: rhel8
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Which OS?
+                required: true
+                type: multiplechoice
+                variable: aws_ostype
+            -   choices: 'tfound-ec2
+
+                    dataylor-redhat-aws'
+                default: tfound-ec2
+                max: null
+                min: null
+                question_description: ''
+                question_name: SSH Key to Use?
+                required: true
+                type: multiplechoice
+                variable: aws_key_name
+            -   choices: ''
+                default: 11.22.33.175
+                max: 1024
+                min: 0
+                question_description: IP or FQDN to
+                    use
+                question_name: Callback to which Tower
+                    Server?
+                required: true
+                type: text
+                variable: host_config_server
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: true
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---
+
+        remoteminer: 10.55.102.58
+
+        ifttt_event: ansible_tower
+
+        ifttt_key: irQQq0OEMdsiO_u2obsKo95_tBLPWB4Ns4f9cciwDYd'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Localhost
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: reboot_when_hot
+    job_type: run
+    limit: ''
+    name: Check antminer
+    natural_key:
+        name: Check antminer
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: check-miner.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: antminer
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials: []
+        labels: []
+        notification_templates_error:
+        -   name: IFTTT
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules:
+        -   description: ''
+            diff_mode: null
+            enabled: true
+            execution_environment: null
+            extra_data: {}
+            forks: null
+            inventory:
+                name: Localhost
+                organization:
+                    name: Default
+                    type: organization
+                type: inventory
+            job_slice_count: null
+            job_tags: null
+            job_type: null
+            limit: null
+            name: Check miner cron
+            natural_key:
+                name: Check miner cron
+                type: schedule
+                unified_job_template:
+                    name: Check antminer
+                    organization:
+                        name: Default
+                        type: organization
+                    type: job_template
+            related:
+                credentials: []
+            rrule: DTSTART;TZID=America/New_York:20241217T050000
+                RRULE:INTERVAL=1;FREQ=HOURLY
+            scm_branch: null
+            skip_tags: null
+            timeout: null
+            unified_job_template:
+                name: Check antminer
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            verbosity: null
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---
+
+        # +730 is 2 years
+
+        howlongtokeep: "+730"
+
+        dir2clean: "/mnt/mycloud2/ring_video_clips/"'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Smart Inventory for Raspberry Pi
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: lab-services
+    name: Clean Ring camera security videos
+    natural_key:
+        name: Clean Ring camera security videos
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: clean-vids.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: ansiblesvc
+            organization: null
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules:
+        -   description: ''
+            diff_mode: null
+            enabled: true
+            execution_environment: null
+            extra_data: {}
+            forks: null
+            inventory:
+                name: Smart Inventory for Raspberry
+                    Pi
+                organization:
+                    name: Default
+                    type: organization
+                type: inventory
+            job_slice_count: null
+            job_tags: null
+            job_type: null
+            limit: null
+            name: Clean Ring videos cron
+            natural_key:
+                name: Clean Ring videos cron
+                type: schedule
+                unified_job_template:
+                    name: Clean Ring camera security
+                        videos
+                    organization:
+                        name: Default
+                        type: organization
+                    type: job_template
+            related:
+                credentials: []
+            rrule: DTSTART;TZID=America/New_York:20241217T054500
+                RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=SU
+            scm_branch: null
+            skip_tags: null
+            timeout: null
+            unified_job_template:
+                name: Clean Ring camera security videos
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            verbosity: null
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---
+
+        # +730 is 2 years
+
+        howlongtokeep: "+730"
+
+        dir2clean: "/mnt/mycloud2/TeslaVids/"'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Smart Inventory for Raspberry Pi
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: lab-services
+    name: Clean tesla videos
+    natural_key:
+        name: Clean tesla videos
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: clean-vids.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: ansiblesvc
+            organization: null
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules:
+        -   description: ''
+            diff_mode: null
+            enabled: true
+            execution_environment: null
+            extra_data: {}
+            forks: null
+            inventory:
+                name: Smart Inventory for Raspberry
+                    Pi
+                organization:
+                    name: Default
+                    type: organization
+                type: inventory
+            job_slice_count: null
+            job_tags: null
+            job_type: null
+            limit: null
+            name: Clean tesla videos cron
+            natural_key:
+                name: Clean tesla videos cron
+                type: schedule
+                unified_job_template:
+                    name: Clean tesla videos
+                    organization:
+                        name: Default
+                        type: organization
+                    type: job_template
+            related:
+                credentials: []
+            rrule: DTSTART;TZID=America/New_York:20241217T053000
+                RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=SU
+            scm_branch: null
+            skip_tags: null
+            timeout: null
+            unified_job_template:
+                name: Clean tesla videos
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            verbosity: null
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: ''
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Demo Inventory
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Demo Job Template
+    natural_key:
+        name: Demo Job Template
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: hello_world.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Demo Project
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: Demo Credential
+            organization: null
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Localhost
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Display RHSM Token
+    natural_key:
+        name: Display RHSM Token
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: get-rhsm-token-value.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: AAP Repo
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: cloud
+                name: Redhat API token  cred type
+                type: credential_type
+            name: redhat offline token
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: true
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment:
+        name: AWS EE
+        type: execution_environment
+    extra_vars: '---
+
+        public_ip: "173.15.218.99"
+
+        fqdn: "blah.maskedadmins.com"
+
+        zone: "maskedadmins.com"
+
+        ttl: "60"
+
+        type: "A"'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Localhost
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: DNS - Update dns entry
+    natural_key:
+        name: DNS - Update dns entry
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: dns-create-awsroute53.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: cloud
+                name: Amazon Web Services
+                type: credential_type
+            name: AWS Creds
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 1
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment:
+        name: VMware EE
+        type: execution_environment
+    extra_vars: '---
+
+        selected_os: rhel88'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: ESXi - Customize and upload image to hypervisors
+    natural_key:
+        name: ESXi - Customize and upload image to hypervisors
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: esxi-convert-and-upload.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: AAP Repo
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: esxi vms
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        -   credential_type:
+                kind: cloud
+                name: RHSM user pass cred type
+                type: credential_type
+            name: redhat cdn login
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: cloud
+                name: Redhat API token  cred type
+                type: credential_type
+            name: redhat offline token
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: cloud
+                name: Super Secret Admin Password Type
+                type: credential_type
+            name: Super Secret Admin Password
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success:
+        -   name: IFTTT
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices:
+                - rhel79
+                - rhel86
+                - fedora37
+                - ubuntu22
+                - rhel91
+                - rhel87
+                - rhel88
+                - rhel95
+                - rhel810
+                default: rhel95
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Select the OS
+                required: true
+                type: multiplechoice
+                variable: selected_os
+            -   choices:
+                - compute6.tfound.org
+                - compute7.tfound.org
+                - ''
+                default: 'compute6.tfound.org
+
+                    compute7.tfound.org'
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Select the hypervisors
+                required: true
+                type: multiselect
+                variable: ESXIHOSTS
+            -   choices: 'rhel
+
+                    fedora
+
+                    ubuntu'
+                default: rhel
+                formattedChoices:
+                -   choice: rhel
+                    id: 0
+                    isDefault: true
+                -   choice: fedora
+                    id: 1
+                    isDefault: false
+                -   choice: ubuntu
+                    id: 2
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ubuntu, fedora,
+                    rhel, etc
+                question_name: What flavor of OS?
+                required: true
+                type: multiplechoice
+                variable: osflavor
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment:
+        name: VMware EE
+        type: execution_environment
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: esxi hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: ESXi - Delete VM
+    natural_key:
+        name: ESXi - Delete VM
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: esxi-delete-vm.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: AAP Repo
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: cloud
+                name: Super Secret Admin Password Type
+                type: credential_type
+            name: Super Secret Admin Password
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started:
+        -   name: IFTTT
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: None
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Name of VM to delete
+                required: true
+                type: text
+                variable: NEWVM
+            -   choices:
+                - compute6.tfound.org
+                - compute7.tfound.org
+                default: compute6.tfound.org
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Which ESXi host?
+                required: true
+                type: multiplechoice
+                variable: ESXIHOST
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment:
+        name: VMware EE
+        type: execution_environment
+    extra_vars: '---
+
+        NEWVM: None'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: esxi hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: ESXi - Launch VM
+    natural_key:
+        name: ESXi - Launch VM
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: esxi-launch-vm.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: AAP Repo
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: cloud
+                name: Super Secret Admin Password Type
+                type: credential_type
+            name: Super Secret Admin Password
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started:
+        -   name: IFTTT
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        -   name: VM has launched
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: ''
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Name of the VM
+                required: true
+                type: text
+                variable: NEWVM
+            -   choices: '4096
+
+                    8192
+
+                    16384
+
+                    32768'
+                default: ''
+                formattedChoices:
+                -   choice: '4096'
+                    id: 0
+                    isDefault: false
+                -   choice: '8192'
+                    id: 1
+                    isDefault: false
+                -   choice: '16384'
+                    id: 2
+                    isDefault: false
+                -   choice: '32768'
+                    id: 3
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Memory
+                required: true
+                type: multiplechoice
+                variable: VMMEM
+            -   choices: '2
+
+                    4
+
+                    8'
+                default: '4'
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: CPUs
+                required: true
+                type: multiplechoice
+                variable: VMCPUS
+            -   choices: 'minikube
+
+                    ansible-builder
+
+                    satellite-server
+
+                    None
+
+                    satellite-capsule
+
+                    haproxy
+
+                    nfs-server
+
+                    minecraft-kube
+
+                    openfire
+
+                    nbde-clevis-client
+
+                    nbde-tang-server
+
+                    jboss-standalone'
+                default: None
+                formattedChoices:
+                -   choice: minikube
+                    id: 0
+                    isDefault: false
+                -   choice: ansible-builder
+                    id: 1
+                    isDefault: false
+                -   choice: satellite-server
+                    id: 2
+                    isDefault: false
+                -   choice: None
+                    id: 3
+                    isDefault: true
+                -   choice: satellite-capsule
+                    id: 4
+                    isDefault: false
+                -   choice: haproxy
+                    id: 5
+                    isDefault: false
+                -   choice: nfs-server
+                    id: 6
+                    isDefault: false
+                -   choice: minecraft-kube
+                    id: 7
+                    isDefault: false
+                -   choice: openfire
+                    id: 8
+                    isDefault: false
+                -   choice: nbde-clevis-client
+                    id: 9
+                    isDefault: false
+                -   choice: nbde-tang-server
+                    id: 10
+                    isDefault: false
+                -   choice: jboss-standalone
+                    id: 11
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Role
+                required: true
+                type: multiplechoice
+                variable: ROLE
+            -   choices: 'zenoss-monitoring
+
+                    None
+
+                    minecraft-kube
+
+                    openfire
+
+                    satellite-oscap'
+                default: None
+                formattedChoices:
+                -   choice: zenoss-monitoring
+                    id: 0
+                    isDefault: false
+                -   choice: None
+                    id: 1
+                    isDefault: true
+                -   choice: minecraft-kube
+                    id: 2
+                    isDefault: false
+                -   choice: openfire
+                    id: 3
+                    isDefault: false
+                -   choice: satellite-oscap
+                    id: 4
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Secondary Role
+                required: true
+                type: multiplechoice
+                variable: SECONDARYROLE
+            -   choices:
+                - compute6.tfound.org
+                - compute7.tfound.org
+                default: compute6.tfound.org
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: ESXI Host
+                required: true
+                type: multiplechoice
+                variable: ESXIHOST
+            -   choices: ''
+                default: '80'
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Size of Disk?
+                required: true
+                type: text
+                variable: VMDISKSIZE
+            -   choices:
+                - RHEL79-GOLDTEMPLATE
+                - RHEL86-GOLDTEMPLATE
+                - FEDORA37-GOLDTEMPLATE
+                - UBUNTU22-GOLDTEMPLATE
+                - RHEL87-GOLDTEMPLATE
+                - RHEL88-GOLDTEMPLATE
+                - RHEL91-GOLDTEMPLATE
+                - RHEL95-GOLDTEMPLATE
+                - RHEL88-GOLDTEMPLATE
+                - RHEL810-GOLDTEMPLATE
+                default: RHEL91-GOLDTEMPLATE
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Use Template Image
+                required: true
+                type: multiplechoice
+                variable: OUTPUT
+            -   choices: 'rhel
+
+                    fedora
+
+                    ubuntu22
+
+                    windows
+
+                    centos6'
+                default: rhel
+                formattedChoices:
+                -   choice: rhel
+                    id: 0
+                    isDefault: true
+                -   choice: fedora
+                    id: 1
+                    isDefault: false
+                -   choice: ubuntu22
+                    id: 2
+                    isDefault: false
+                -   choice: windows
+                    id: 3
+                    isDefault: false
+                -   choice: centos6
+                    id: 4
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: What is the Os flavor?
+                required: true
+                type: multiplechoice
+                variable: osflavor
+            -   choices: ''
+                default: 'no'
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: Application servers
+                    have owners and relaxed security.
+                    Type in the application if so
+                question_name: Is this an application
+                    server?
+                required: true
+                type: text
+                variable: appserver
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment:
+        name: VMware EE
+        type: execution_environment
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: esxi hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: ESXi - List VMs
+    natural_key:
+        name: ESXi - List VMs
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: esxi-list-vms.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: AAP Repo
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: ''
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Name of the VM
+                required: true
+                type: text
+                variable: NEWVM
+            -   choices: '4096
+
+                    8192
+
+                    16384
+
+                    32768'
+                default: ''
+                formattedChoices:
+                -   choice: '4096'
+                    id: 0
+                    isDefault: false
+                -   choice: '8192'
+                    id: 1
+                    isDefault: false
+                -   choice: '16384'
+                    id: 2
+                    isDefault: false
+                -   choice: '32768'
+                    id: 3
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Memory
+                required: true
+                type: multiplechoice
+                variable: VMMEM
+            -   choices: '2
+
+                    4
+
+                    8'
+                default: '4'
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: CPUs
+                required: true
+                type: multiplechoice
+                variable: VMCPUS
+            -   choices: 'minikube
+
+                    ansible-builder
+
+                    satellite-server
+
+                    None
+
+                    satellite-capsule
+
+                    haproxy
+
+                    nfs-server
+
+                    minecraft-kube
+
+                    openfire
+
+                    nbde-clevis-client
+
+                    nbde-tang-server
+
+                    jboss-standalone'
+                default: None
+                formattedChoices:
+                -   choice: minikube
+                    id: 0
+                    isDefault: false
+                -   choice: ansible-builder
+                    id: 1
+                    isDefault: false
+                -   choice: satellite-server
+                    id: 2
+                    isDefault: false
+                -   choice: None
+                    id: 3
+                    isDefault: true
+                -   choice: satellite-capsule
+                    id: 4
+                    isDefault: false
+                -   choice: haproxy
+                    id: 5
+                    isDefault: false
+                -   choice: nfs-server
+                    id: 6
+                    isDefault: false
+                -   choice: minecraft-kube
+                    id: 7
+                    isDefault: false
+                -   choice: openfire
+                    id: 8
+                    isDefault: false
+                -   choice: nbde-clevis-client
+                    id: 9
+                    isDefault: false
+                -   choice: nbde-tang-server
+                    id: 10
+                    isDefault: false
+                -   choice: jboss-standalone
+                    id: 11
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Role
+                required: true
+                type: multiplechoice
+                variable: ROLE
+            -   choices: 'zenoss-monitoring
+
+                    None
+
+                    minecraft-kube
+
+                    openfire'
+                default: None
+                formattedChoices:
+                -   choice: zenoss-monitoring
+                    id: 0
+                    isDefault: false
+                -   choice: None
+                    id: 1
+                    isDefault: true
+                -   choice: minecraft-kube
+                    id: 2
+                    isDefault: false
+                -   choice: openfire
+                    id: 3
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Secondary Role
+                required: true
+                type: multiplechoice
+                variable: SECONDARYROLE
+            -   choices: 'compute6.tfound.org
+
+                    compute7.tfound.org'
+                default: compute6.tfound.org
+                formattedChoices:
+                -   choice: compute6.tfound.org
+                    id: 0
+                    isDefault: true
+                -   choice: compute7.tfound.org
+                    id: 1
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: ESXI Host
+                required: true
+                type: multiplechoice
+                variable: ESXIHOST
+            -   choices: ''
+                default: '80'
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Size of Disk?
+                required: true
+                type: text
+                variable: VMDISKSIZE
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: true
+    execution_environment:
+        name: Hybrid EE
+        type: execution_environment
+    extra_vars: "---\nnewusers:\n- newusername: ansiblesvc\n
+        \ newgroups: \"wheel,root\"\n  # provide path
+        to a public keyfile or paste in the pub key\n
+        \ public_key: \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDktYoiYBUJUTZlc0Y2t+u2Y3+T8IAxACbyAxgzREhZBW9GjcC/roP79HxBh+k4M/K2oFYZqRsKWGZVy1+x15SQg3d7Md0k2ADcnB6QOke2m5+brn2RKT+pW7uI7149d+bs3qI4FHP9VawN/vOAEZuwsAwqalvuzEYfKKO1CFRtIus2JUCbFRsE7mKEwdDYEJojSlZ49+s0FH9DDjswz4uq/RlgpvkRECqdLhBSnXLaUW6KBeGaR+1d46bnxUryivFNhgCWb1H5JnRgulZWLiA6/ZzUslzNHDX4iD6a4q2UEGVUyom23OvVhyTXsVD97zi5ydEkSCXClT5/HsBB5UlmAFflgtZNy26Kn33itVnDSmgtzJ5YWk8dpmIx9zzFRoTzlrGVfq/akVY20Ihk5n9Ae+2qOMF80BYclRITEKQEPKQUtP4vJROpK+IgBQUeAOLHqzp55oBLSKl61nA7cI+dcKIDlezOTQLCW+d7uI+mr3Z6cMM5XXrEtJoi8IFkxkSfdYuNDgwJl/Xq9+nmxLPa2g6KvG1fLL2fZynK+BZuOSq1KG/wER8XWizQ4rVWCM9PfiP5OqrmVZPtlBeYvEUho4AajiWXPifRKUp3+3K/inIbyt7LHi5pTcWKenOpGj3c870mxb0VMm+z5d2GurGgJ3A/zJkYht5fkbEg93lIRQ==\"\n-
+        newusername: dataylor\n  newgroups: \"wheel,root\"\n
+        \ # provide path to a public keyfile or paste
+        in the pub key\n  public_key: \"ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAnBlcXUd9fJtvocP4O2qkc7kfgYzeJMdQs4YasP1U5JPXPKToHYCGYv8VcheIODlnxI3FjI4AR7G5naH+yw8Ahr1Rgstltr804p/Fh50ict8Lelps0QdaHFW5pGzHjjf9wMBf+juMT950l3Qzg7c/GApXMaigZv9WvhWFwNBnhV6uy6fHCsoU/sb13ld+6uxYleLpA9vfIkV+hI3uMeKRQJ1uvHyGRFqfuVNHcMv1ywvKIRegRhs9l3F9VNnXEKZlJfJExDN+tB+fdjYhGZCVgDE/NnAv5ZLruyVsKZFzH12D8Rd6GJuXmw8zKv9bm3syZI7RlMUtvDp4R/2El+nTnQ==
+        root@socrates.taylorfoundationllc.org\""
+    force_handlers: false
+    forks: 0
+    host_config_key: firstboot
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Firstboot
+    natural_key:
+        name: Firstboot
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: site.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: cloud
+                name: Docker.io login creds type
+                type: credential_type
+            name: Docker.io creds
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: esxi vms 20230728
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: cloud
+                name: Redhat Automation Hub token cred
+                    type
+                type: credential_type
+            name: Redhat Automation Hub Creds
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: cloud
+                name: RHSM user pass cred type
+                type: credential_type
+            name: redhat cdn login
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: cloud
+                name: Redhat API token  cred type
+                type: credential_type
+            name: redhat offline token
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error:
+        -   name: VM has launched
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        notification_templates_started:
+        -   name: VM has launched
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        notification_templates_success:
+        -   name: VM has launched
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: true
+    verbosity: 1
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Firstboot - Environment
+    natural_key:
+        name: Firstboot - Environment
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: site.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials: []
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Firstboot - Lockdown for Compliance
+    natural_key:
+        name: Firstboot - Lockdown for Compliance
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: site.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials: []
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: false
+    execution_environment:
+        name: GCP EE
+        type: execution_environment
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: builder*
+    name: GCP upload golden image
+    natural_key:
+        name: GCP upload golden image
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: build-gcp-image.yaml
+    prevent_instance_group_fallback: false
+    project:
+        name: AAP Repo
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: ansiblesvc
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: cloud
+                name: Google Compute Engine
+                type: credential_type
+            name: gcp creds
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: rhel8.7_goldenimage
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: GCP image name?
+                required: true
+                type: text
+                variable: gcp_image_name
+            -   choices: 'rhel79
+
+                    rhel87
+
+                    rhel86
+
+                    fedora37
+
+                    ubuntu22'
+                default: rhel87
+                formattedChoices:
+                -   choice: rhel79
+                    id: 0
+                    isDefault: false
+                -   choice: rhel87
+                    id: 1
+                    isDefault: true
+                -   choice: rhel86
+                    id: 2
+                    isDefault: false
+                -   choice: fedora37
+                    id: 3
+                    isDefault: false
+                -   choice: ubuntu22
+                    id: 4
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: Which base os image?
+                required: true
+                type: multiplechoice
+                variable: selected_os
+            -   choices: ''
+                default: dataylor-bucket2
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Store in which bucket?
+                required: true
+                type: text
+                variable: gcp_storage_bucket
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: true
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Install RHEL Webconsole
+    natural_key:
+        name: Install RHEL Webconsole
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: install-webconsole.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: ansiblesvc
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: ''
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Localhost
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Inventory Update
+    natural_key:
+        name: Inventory Update
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: inventory-update.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment:
+        name: Hybrid EE
+        type: execution_environment
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: monitoring*
+    name: Monitoring - Refresh
+    natural_key:
+        name: Monitoring - Refresh
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: monitoring-refresh.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: esxi vms
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules:
+        -   description: ''
+            diff_mode: null
+            enabled: false
+            execution_environment: null
+            extra_data: {}
+            forks: null
+            inventory:
+                name: All Hosts
+                organization:
+                    name: Default
+                    type: organization
+                type: inventory
+            job_slice_count: null
+            job_tags: null
+            job_type: null
+            limit: null
+            name: Monitoring Refresh
+            natural_key:
+                name: Monitoring Refresh
+                type: schedule
+                unified_job_template:
+                    name: Monitoring - Refresh
+                    organization:
+                        name: Default
+                        type: organization
+                    type: job_template
+            related:
+                credentials: []
+            rrule: DTSTART;TZID=America/New_York:20230114T194500
+                RRULE:INTERVAL=1;FREQ=DAILY
+            scm_branch: null
+            skip_tags: null
+            timeout: null
+            unified_job_template:
+                name: Monitoring - Refresh
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            verbosity: null
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: ''
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Localhost
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: NBDE Clean Group Inventories
+    natural_key:
+        name: NBDE Clean Group Inventories
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: nbde-tower-group-reset.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: New and shiny template
+    natural_key:
+        name: New and shiny template
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: site.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials: []
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: ''
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Smart Inventory for Firstboots
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Pause 45 mins
+    natural_key:
+        name: Pause 45 mins
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: pause-45mins.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Localhost
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Pause X minutes
+    natural_key:
+        name: Pause X minutes
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: pause-x-mins.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Applications
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials: []
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: '45'
+                max: 3
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Pause for how many minutes?
+                required: true
+                type: text
+                variable: x
+            -   choices: ''
+                default: '...'
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: Please give the
+                    reason for the wait
+                question_name: Message?
+                required: true
+                type: text
+                variable: msg
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: true
+    execution_environment:
+        name: Hybrid EE
+        type: execution_environment
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: firstboot
+    inventory:
+        name: Smart Inventory for Firstboots
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Redhat CDN keepalive
+    natural_key:
+        name: Redhat CDN keepalive
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: poll-redhat-cdn.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: AAP Repo
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: cloud
+                name: Redhat API token  cred type
+                type: credential_type
+            name: redhat offline token
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules:
+        -   description: ''
+            diff_mode: null
+            enabled: true
+            execution_environment: null
+            extra_data: {}
+            forks: null
+            inventory:
+                name: Smart Inventory for Firstboots
+                organization:
+                    name: Default
+                    type: organization
+                type: inventory
+            job_slice_count: null
+            job_tags: null
+            job_type: null
+            limit: null
+            name: Keepalive for Redhat CDN offline token
+            natural_key:
+                name: Keepalive for Redhat CDN offline
+                    token
+                type: schedule
+                unified_job_template:
+                    name: Redhat CDN keepalive
+                    organization:
+                        name: Default
+                        type: organization
+                    type: job_template
+            related:
+                credentials: []
+            rrule: DTSTART;TZID=America/New_York:20241214T113000
+                RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=SA
+            scm_branch: null
+            skip_tags: null
+            timeout: null
+            unified_job_template:
+                name: Redhat CDN keepalive
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            verbosity: null
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: 'hybrid
+
+                    vmware
+
+                    cisco
+
+                    gcp
+
+                    aws
+
+                    azure
+
+                    ibm
+
+                    builder
+
+                    networking
+
+                    ffmpeg'
+                default: hybrid
+                formattedChoices:
+                -   choice: hybrid
+                    id: 0
+                    isDefault: true
+                -   choice: vmware
+                    id: 1
+                    isDefault: false
+                -   choice: cisco
+                    id: 2
+                    isDefault: false
+                -   choice: gcp
+                    id: 3
+                    isDefault: false
+                -   choice: aws
+                    id: 4
+                    isDefault: false
+                -   choice: azure
+                    id: 5
+                    isDefault: false
+                -   choice: ibm
+                    id: 6
+                    isDefault: false
+                -   choice: builder
+                    id: 7
+                    isDefault: false
+                -   choice: networking
+                    id: 8
+                    isDefault: false
+                -   choice: ffmpeg
+                    id: 9
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: ''
+                question_name: EE type
+                required: true
+                type: multiplechoice
+                variable: EE_TYPE
+            -   choices: ''
+                default: hybridz7:latest
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Tag
+                required: true
+                type: text
+                variable: TAG
+            -   choices: ''
+                default: docker.io/syspimp/ansible-ee
+                formattedChoices:
+                -   choice: ''
+                    id: 0
+                    isDefault: false
+                max: 1024
+                min: 0
+                new_question: false
+                question_description: Where shall we
+                    put this?
+                question_name: Upstream repo
+                required: true
+                type: text
+                variable: UPSTREAM_REPO
+            -   choices: ''
+                default: hybrid
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: The final name
+                question_name: Upstream Tag
+                required: true
+                type: text
+                variable: UPSTREAM_TAG
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: true
+    verbosity: 1
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Smart Inventory for Raspberry Pi
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: trashcanpi
+    name: Rpis - Install Kubernetes
+    natural_key:
+        name: Rpis - Install Kubernetes
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: rpi-install-kubernetes.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: ansiblesvc
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 1
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: ''
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Localhost
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Satellite Clean Group Inventories
+    natural_key:
+        name: Satellite Clean Group Inventories
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: sat6-tower-group-reset.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: ''
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: Smart Inventory for Firstboots
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Satellite - Generate Reports
+    natural_key:
+        name: Satellite - Generate Reports
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: sat6-generate-reports.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: This will mount the backup server and
+        copy backups to it.
+    diff_mode: false
+    execution_environment: null
+    extra_vars: ''
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Satellite - Make Backup for Server and Capsules
+    natural_key:
+        name: Satellite - Make Backup for Server and
+            Capsules
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: sat6-make-backup.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: 'online
+
+                    online_skip_pulp
+
+                    offline
+
+                    offline_skip_pulp
+
+                    offline_incremental
+
+                    lvm_snapshot'
+                default: online_skip_pulp
+                max: null
+                min: null
+                new_question: true
+                question_description: Online or Offline
+                    full backup (slowest), Online or
+                    Offline but Skip Pulp Data,  Offline
+                    Incremental, LVM snapshot (fastest)
+                question_name: What type of backup?
+                required: true
+                type: multiplechoice
+                variable: backup_type
+            -   choices: ''
+                default: /tmp/sat6backup/date_of_last_full_backup
+                max: 1024
+                min: 0
+                question_description: Ignored if not
+                    performing incremental backups.
+                    Otherwise, provide the directory
+                    name of the last full backup
+                question_name: Existing full backup
+                    directory for incremental backups
+                    only
+                required: true
+                type: text
+                variable: fullbackup_dir
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: true
+    #ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---
+
+        publish: no'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Satellite - Promote Content View through several
+        environments
+    natural_key:
+        name: Satellite - Promote Content View through
+            several environments
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: sat6-promote-content-views.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Applications
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: esxi vms
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error:
+        -   name: IFTTT
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        -   name: VM has launched
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        notification_templates_started:
+        -   name: IFTTT
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        -   name: VM has launched
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        notification_templates_success:
+        -   name: IFTTT
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        -   name: VM has launched
+            organization:
+                name: Default
+                type: organization
+            type: notification_template
+        schedules:
+        -   description: ''
+            diff_mode: null
+            enabled: true
+            execution_environment: null
+            extra_data:
+                content_view: Base
+                environments:
+                - production
+                publish: 'yes'
+            forks: null
+            inventory:
+                name: All Hosts
+                organization:
+                    name: Default
+                    type: organization
+                type: inventory
+            job_slice_count: null
+            job_tags: null
+            job_type: null
+            limit: null
+            name: sat6 - make new base view from repo
+                sync
+            natural_key:
+                name: sat6 - make new base view from
+                    repo sync
+                type: schedule
+                unified_job_template:
+                    name: Satellite - Promote Content
+                        View through several environments
+                    organization:
+                        name: Default
+                        type: organization
+                    type: job_template
+            related:
+                credentials: []
+            rrule: DTSTART;TZID=America/New_York:20240702T000000
+                RRULE:INTERVAL=1;FREQ=WEEKLY;BYDAY=MO
+            scm_branch: null
+            skip_tags: null
+            timeout: null
+            unified_job_template:
+                name: Satellite - Promote Content View
+                    through several environments
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            verbosity: null
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: Base
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: Content View to promote?
+                required: true
+                type: text
+                variable: content_view
+            -   choices: 'development
+
+                    testing
+
+                    production'
+                default: development
+                max: null
+                min: null
+                new_question: true
+                question_description: ''
+                question_name: Which target environments?
+                required: true
+                type: multiselect
+                variable: environments
+            -   choices: 'yes
+
+                    no'
+                default: 'no'
+                max: null
+                min: null
+                question_description: Create a new content
+                    view to promote.  Select no if you
+                    already have a CV in Library that
+                    is ready to promote. This takes
+                    30 mins or more, depending on how
+                    many repos you have.
+                question_name: Publish new content view?
+                required: true
+                type: multiplechoice
+                variable: publish
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: reconfigure
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: capsule-lb*
+    name: Satellite - Reconfigure Capsule LB
+    natural_key:
+        name: Satellite - Reconfigure Capsule LB
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: sat6-reconfigure-capsule-lb.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: esxi vms
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: true
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: true
+    description: ''
+    diff_mode: false
+    execution_environment:
+        name: Hybrid EE
+        type: execution_environment
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: reconfig
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: '!satellite-server:!capsules:!capsule-lb:!tower-servers'
+    name: Satellite - Register to Capsule Load Balancer
+    natural_key:
+        name: Satellite - Register to Capsule Load Balancer
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: sat6-register-to-capsule-lb.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Provisioning
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: ansiblesvc
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: all:!satellite-server:!capsules:!capsule-lb
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: ''
+                question_name: add which hosts to satellite?
+                required: true
+                type: text
+                variable: sat6_clients
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Satellite - Wait for Repo Sync to Complete
+    natural_key:
+        name: Satellite - Wait for Repo Sync to Complete
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: sat6-wait-for-repo-sync.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Applications
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: esxi vms
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: true
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Satellite - Wait for Task to Complete
+    natural_key:
+        name: Satellite - Wait for Task to Complete
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: sat6-wait-for-task.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Applications
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: esxi vms
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec:
+            description: ''
+            name: ''
+            spec:
+            -   choices: ''
+                default: Synchronize repository
+                max: 1024
+                min: 0
+                question_description: Enter in the unique
+                    part of the task name from 'hammer
+                    task list'. This playbook will run
+                    until that task is reported as 'stopped'.
+                question_name: What task to wait for?
+                required: true
+                type: text
+                variable: task
+            -   choices: ''
+                default: '120'
+                max: 1024
+                min: 0
+                question_description: We will try this
+                    many times, after a delay.
+                question_name: How many times to check?
+                required: true
+                type: text
+                variable: attempts
+            -   choices: ''
+                default: '60'
+                max: 1024
+                min: 0
+                new_question: true
+                question_description: Give the time
+                    in seconds to wait between attempts,
+                    eg 60 seconds and 120 retries will
+                    check for 2  hours.
+                question_name: How long to delay between
+                    checks?
+                required: true
+                type: text
+                variable: delay
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: true
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: false
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: teslausb
+    name: Tesla - Sync videos to storage
+    natural_key:
+        name: Tesla - Sync videos to storage
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: teslausb_force_sync.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials:
+        -   credential_type:
+                kind: ssh
+                name: Machine
+                type: credential_type
+            name: ansiblesvc
+            organization: null
+            type: credential
+        -   credential_type:
+                kind: vault
+                name: Vault
+                type: credential_type
+            name: Unlock Vault
+            organization:
+                name: Default
+                type: organization
+            type: credential
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules:
+        -   description: ''
+            diff_mode: null
+            enabled: false
+            execution_environment: null
+            extra_data: {}
+            forks: null
+            inventory:
+                name: All Hosts
+                organization:
+                    name: Default
+                    type: organization
+                type: inventory
+            job_slice_count: null
+            job_tags: null
+            job_type: null
+            limit: null
+            name: Tesla - Sync videos to storage (moved
+                to cron)
+            natural_key:
+                name: Tesla - Sync videos to storage
+                    (moved to cron)
+                type: schedule
+                unified_job_template:
+                    name: Tesla - Sync videos to storage
+                    organization:
+                        name: Default
+                        type: organization
+                    type: job_template
+            related:
+                credentials: []
+            rrule: DTSTART;TZID=America/New_York:20230610T010000
+                RRULE:INTERVAL=1;FREQ=HOURLY
+            scm_branch: null
+            skip_tags: null
+            timeout: null
+            unified_job_template:
+                name: Tesla - Sync videos to storage
+                organization:
+                    name: Default
+                    type: organization
+                type: job_template
+            verbosity: null
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+-   allow_simultaneous: false
+    ask_credential_on_launch: false
+    ask_diff_mode_on_launch: false
+    ask_execution_environment_on_launch: false
+    ask_forks_on_launch: false
+    ask_instance_groups_on_launch: false
+    ask_inventory_on_launch: false
+    ask_job_slice_count_on_launch: false
+    ask_job_type_on_launch: false
+    ask_labels_on_launch: false
+    ask_limit_on_launch: false
+    ask_scm_branch_on_launch: false
+    ask_skip_tags_on_launch: false
+    ask_tags_on_launch: false
+    ask_timeout_on_launch: false
+    ask_variables_on_launch: true
+    ask_verbosity_on_launch: false
+    become_enabled: false
+    description: ''
+    diff_mode: false
+    execution_environment: null
+    extra_vars: '---
+
+        host2check: None
+
+        port2check: 22
+
+        delaycheck: 60
+
+        timeoutcheck: 360'
+    force_handlers: false
+    forks: 0
+    host_config_key: ''
+    inventory:
+        name: All Hosts
+        organization:
+            name: Default
+            type: organization
+        type: inventory
+    job_slice_count: 1
+    job_tags: ''
+    job_type: run
+    limit: ''
+    name: Wait for Host/Port
+    natural_key:
+        name: Wait for Host/Port
+        organization:
+            name: Default
+            type: organization
+        type: job_template
+    playbook: wait-for-port.yml
+    prevent_instance_group_fallback: false
+    project:
+        name: Redhat_Lab
+        organization:
+            name: Default
+            type: organization
+        type: project
+    related:
+        credentials: []
+        labels: []
+        notification_templates_error: []
+        notification_templates_started: []
+        notification_templates_success: []
+        schedules: []
+        survey_spec: {}
+    scm_branch: ''
+    skip_tags: ''
+    start_at_task: ''
+    survey_enabled: false
+    timeout: 0
+    use_fact_cache: false
+    verbosity: 0
+    webhook_credential: null
+    webhook_service: ''
+...

@@ -1,0 +1,111 @@
+---
+notification_templates:
+-   description: ''
+    messages:
+        error:
+            body: '{ "value1": "Error: {{ job_metadata
+                }}" }'
+            message: ''
+        started:
+            body: '{ "value1": "General notification:
+                {{ job_metadata }}" }'
+            message: ''
+        success:
+            body: '{ "value1": "Success: {{ job_metadata
+                }}" }'
+            message: ''
+        workflow_approval:
+            approved:
+                body: '{"value1": "The approval node
+                    \"{{ approval_node_name }}\" was
+                    approved. {{ workflow_url }}"}'
+                message: ''
+            denied:
+                body: '{"value1": "The approval node
+                    \"{{ approval_node_name }}\" was
+                    denied. {{ workflow_url }}"}'
+                message: ''
+            running:
+                body: '{"value1": "The approval node
+                    \"{{ approval_node_name }}\" needs
+                    review. This node can be viewed
+                    at: {{ workflow_url }}"}'
+                message: ''
+            timed_out:
+                body: '{"value1": "The approval node
+                    \"{{ approval_node_name }}\" has
+                    timed out. {{ workflow_url }}"}'
+                message: ''
+    name: IFTTT
+    natural_key:
+        name: IFTTT
+        organization:
+            name: Default
+            type: organization
+        type: notification_template
+    notification_configuration:
+        disable_ssl_verification: false
+        headers: {}
+        http_method: POST
+        password: ''
+        url: https://maker.ifttt.com/trigger/ansible_tower/json/with/key/irQQq0OEMdsiO_u2obsKo95_tBLPWB4Ns4f9cciwDYd
+        username: ''
+    notification_type: webhook
+    organization:
+        name: Default
+        type: organization
+-   description: ''
+    messages:
+        error:
+            body: '{ "value1": "Launch Error: {{ job_metadata
+                }}" }'
+            message: ''
+        started:
+            body: '{ "value1": "VM Launch Started: {{
+                job_metadata }}" }'
+            message: ''
+        success:
+            body: '{ "value1": "VM Launch Success: {{
+                job_metadata }}" }'
+            message: ''
+        workflow_approval:
+            approved:
+                body: '{"value1": "The approval node
+                    \"{{ approval_node_name }}\" was
+                    approved. {{ workflow_url }}"}'
+                message: ''
+            denied:
+                body: '{"value1": "The approval node
+                    \"{{ approval_node_name }}\" was
+                    denied. {{ workflow_url }}"}'
+                message: ''
+            running:
+                body: '{"value1": "The approval node
+                    \"{{ approval_node_name }}\" needs
+                    review. This node can be viewed
+                    at: {{ workflow_url }}"}'
+                message: ''
+            timed_out:
+                body: '{"value1": "The approval node
+                    \"{{ approval_node_name }}\" has
+                    timed out. {{ workflow_url }}"}'
+                message: ''
+    name: VM has launched
+    natural_key:
+        name: VM has launched
+        organization:
+            name: Default
+            type: organization
+        type: notification_template
+    notification_configuration:
+        disable_ssl_verification: false
+        headers: {}
+        http_method: POST
+        password: ''
+        url: https://maker.ifttt.com/trigger/ansible_tower/json/with/key/irQQq0OEMdsiO_u2obsKo95_tBLPWB4Ns4f9cciwDYd
+        username: ''
+    notification_type: webhook
+    organization:
+        name: Default
+        type: organization
+...

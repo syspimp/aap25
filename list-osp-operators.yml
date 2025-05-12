@@ -1,0 +1,19 @@
+# utility playbook to dump the operators in an openshift namespace
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    ns: "aap-west"
+  collections:
+    - kubernetes.core
+  tasks:
+  - name: Get a list of operators in a namespace
+    kubernetes.core.k8s_info:
+      api: operators.coreos.com/v1alpha1
+      kind: clusterserviceversions
+      namespace: "{{ ns }}"
+    register: dump
+
+  - name: dump it
+    debug:
+      var: dump

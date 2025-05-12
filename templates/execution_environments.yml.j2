@@ -1,0 +1,152 @@
+---
+execution_environments:
+-   credential:
+        credential_type:
+            kind: registry
+            name: Container Registry
+            type: credential_type
+        name: docker.io Creds
+        organization:
+            name: Borg
+            type: organization
+        type: credential
+    description: EE to manage gcp hosts
+    image: docker.io/syspimp/ansible-ee:gcp
+    name: GCP EE
+    natural_key:
+        name: GCP EE
+        type: execution_environment
+    organization:
+        name: Default
+        type: organization
+    pull: always
+-   credential:
+        credential_type:
+            kind: registry
+            name: Container Registry
+            type: credential_type
+        name: docker.io Creds
+        organization:
+            name: Borg
+            type: organization
+        type: credential
+    description: ''
+    image: docker.io/syspimp/ansible-ee:newname
+    name: New EE
+    natural_key:
+        name: New EE
+        type: execution_environment
+    organization: null
+    pull: missing
+-   credential:
+        credential_type:
+            kind: registry
+            name: Container Registry
+            type: credential_type
+        name: docker.io Creds
+        organization:
+            name: Borg
+            type: organization
+        type: credential
+    description: EE to manage all hosts
+    image: docker.io/syspimp/ansible-ee:hybrid
+    name: Hybrid EE
+    natural_key:
+        name: Hybrid EE
+        type: execution_environment
+    organization:
+        name: Default
+        type: organization
+    pull: missing
+-   credential:
+        credential_type:
+            kind: registry
+            name: Container Registry
+            type: credential_type
+        name: docker.io Creds
+        organization:
+            name: Borg
+            type: organization
+        type: credential
+    description: EE to manage aws hosts
+    image: docker.io/syspimp/ansible-ee:aws
+    name: AWS EE
+    natural_key:
+        name: AWS EE
+        type: execution_environment
+    organization:
+        name: Default
+        type: organization
+    pull: missing
+-   credential:
+        credential_type:
+            kind: registry
+            name: Container Registry
+            type: credential_type
+        name: docker.io Creds
+        organization:
+            name: Borg
+            type: organization
+        type: credential
+    description: EE to manage vmware esxi hosts
+    image: docker.io/syspimp/ansible-ee:vmware
+    name: VMware EE
+    natural_key:
+        name: VMware EE
+        type: execution_environment
+    organization:
+        name: Default
+        type: organization
+    pull: always
+-   credential:
+        credential_type:
+            kind: registry
+            name: Container Registry
+            type: credential_type
+        name: Default Execution Environment Registry
+            Credential
+        organization: null
+        type: credential
+    description: ''
+    image: registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel8:latest
+    name: Default execution environment
+    natural_key:
+        name: Default execution environment
+        type: execution_environment
+    organization: null
+    pull: ''
+-   credential:
+        credential_type:
+            kind: registry
+            name: Container Registry
+            type: credential_type
+        name: Default Execution Environment Registry
+            Credential
+        organization: null
+        type: credential
+    description: ''
+    image: registry.redhat.io/ansible-automation-platform-22/ee-29-rhel8:latest
+    name: Ansible Engine 2.9 execution environment
+    natural_key:
+        name: Ansible Engine 2.9 execution environment
+        type: execution_environment
+    organization: null
+    pull: ''
+-   credential:
+        credential_type:
+            kind: registry
+            name: Container Registry
+            type: credential_type
+        name: Default Execution Environment Registry
+            Credential
+        organization: null
+        type: credential
+    description: ''
+    image: registry.redhat.io/ansible-automation-platform-24/ee-minimal-rhel8:latest
+    name: Minimal execution environment
+    natural_key:
+        name: Minimal execution environment
+        type: execution_environment
+    organization: null
+    pull: ''
+...
