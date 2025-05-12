@@ -55,9 +55,12 @@ This uses ansible to:
 - deploy-entitle-import.yml is the entry for this example, and wraps over other playbooks. Some of those can be run by themselves, some are utility playbooks for one off runs and some playbooks are just examples
 
 - aap25-import-workloads.yml is the playbook that performs the config as code/imports the configuration. You can use it directory against vm/bare-metal deployments, just set the tower_onosp=no tower_host=myaapcluster.example.com tower_password=keepsecret flags.
-- the configuration for aap was exported from another, working aap cluster, and some were modified to be used as a jinja template in the templates/ directory. The unmodified exported configuration are saved/loaded from files/ directory. There is a script named 'backup-tower-config-into-objects.sh' as well as a playbook named 'aap25-export-workloads.yml' provided to export/backup an ansible tower/aap deployment and create these files.
 
-`ansible-playbook -e 'tower_osp_project=aap-west tower_osp_deployment_name=aap25-jpn' deploy-entitle-import.yml`
+`ansible-playbook -e 'tower_osp_project=aap-west tower_osp_deployment_name=aap25-jpn' aap25-import-workloads.yml`
+
+- the configuration for this aap example was exported from another, working aap cluster, and some were modified to be used as a jinja template in the templates/ directory. The unmodified exported configuration are saved/loaded from files/ directory. There is a script named 'backup-tower-config-into-objects.sh' as well as a playbook named 'aap25-export-workloads.yml' provided to export/backup an ansible tower/aap deployment and create these files. This example sets tower_host variable. It doesn't matter if it is running on openshift or not.
+
+`ansible-playbook -e 'tower_host=aap25-vm.example.com tower_pass=supersecret' aap25-export-workloads.yml`
 
 - look at deploy-entitle-import.yml, you can override any of those variables used in there to deploy different clusters to serve asia and europe:
   ie to deploy two different aap clusters in namespaces 'aap-east' and 'aap-west'. If you have a Multi-node Openshift Cluster operating in multiple regions or environments, you can assign a cluster to run exclusively on a particuler openshift node to serve that enviroment. You can accomplish this adding tags to deployments/pods, but that is beyond the scope of this demo.
