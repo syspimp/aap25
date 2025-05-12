@@ -1,9 +1,13 @@
 # https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.5/html/installing_on_openshift_container_platform/appendix-operator-crs_performance-considerations#appendix-operator-crs_performance-considerations
-# this is an eample of how to modify the settings of a running cluster
-# the ALLOW_LOCAL_RESOURCE_MANAGEMENT flag in /etc/tower/settings.py
+# this is an example of how to modify the settings of a running cluster
+# the ALLOW_LOCAL_RESOURCE_MANAGEMENT flag in /etc/tower/settings.py on the controller
 # controls the ability to update users/orgs/credentials via the api
 # you might want to disable that after deployment
 # disable by settings the values below to False
+# then running 'oc apply -f ./osp-allow-local-management.yml'
+#
+# there is no need to run this as is. 
+# It is included with deployment config in templates/deploy-aap25-cluster.yml.j2
 ---
 apiVersion: aap.ansible.com/v1alpha1
 kind: AnsibleAutomationPlatform
