@@ -30,14 +30,14 @@ This uses ansible to:
 
 `ansible-vault encrypt group_vars/all.yml`
 
-10. run "ansible-playbook osp-install-aap.yml" to deploy a ansible automation platform 2.5 cluster named 'aap25' into the 'aap' namespace on your openshift cluster
-11. \[OPTIONAL BUT RECOMMENDED\] run "ansible-playbook --ask-vault-pass osp-install.aap.yml" to unencrypt the secrets for the run. type in your vault password.
+10. run "ansible-playbook deploy-entitle-import.yml" to deploy a ansible automation platform 2.5 cluster named 'aap25' into the 'aap' namespace (defaults) on your openshift cluster
+11. \[OPTIONAL BUT RECOMMENDED\] run "ansible-playbook --ask-vault-pass deploy-entitle-import.yml" to unencrypt the secrets for the run. type in your vault password.
 
-`ansible-playbook --ask-vault-pass osp-install.aap.yml`
+`ansible-playbook --ask-vault-pass deploy-entitle-import.yml`
 
-12. \[OPTIONAL\] or change the namespace and cluster name by editing the playbook or passing in extra vars: ansible-playbook -e 'project=dev-ops-ansible deployment_name=development-automation' osp-install-aap.yml. This will deploy an aap 2.5 cluster named 'development-automation' in the openshift namespace 'dev-ops-ansible'.
+12. \[OPTIONAL\] or change the namespace and cluster name by editing the playbook or passing in extra vars: ansible-playbook -e 'project=dev-ops-ansible deployment_name=development-automation' deploy-entitle-import.yml. This will deploy an aap 2.5 cluster named 'development-automation' in the openshift namespace 'dev-ops-ansible'.
 
-`ansible-playbook -e 'project=dev-ops-ansible deployment_name=development-automation' osp-install-aap.yml`
+`ansible-playbook -e 'project=dev-ops-ansible deployment_name=development-automation' deploy-entitle-import.yml`
 
 ![Starting the aap on openshift deployment](https://raw.githubusercontent.com/syspimp/aap25/master/pics/deploy-start.png)
 
@@ -52,7 +52,7 @@ This uses ansible to:
 `ansible-playbook osp-aap-get-admin-pass.yml`
 
 # notes
-- deploy-entitle-import.yml is the entry for this example, and some utilites for one off runs and some playbooks are just examples
+- deploy-entitle-import.yml is the entry for this example, and wraps over other playbooks. Some of those can be run by themselves, some are utility playbooks for one off runs and some playbooks are just examples
 
 - look at deploy-entitle-import.yml, you can override any of those variables used in there to deploy different clusters:
   ie to deploy two different in namespaces 'aap-east' and 'aap-west'
