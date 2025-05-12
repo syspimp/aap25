@@ -11,18 +11,45 @@ This uses ansible to:
 2. log into your cluster with oc: oc login
 3. [get your redhat automation hub token](https://console.redhat.com/ansible/automation-hub/token)
 4. !!! COPY ansible.cfg.example to ansible.cfg and update with your token
+
+`cp ansible.cfg.example ansible.cfg`
+
 5. [Create and download/export manifest that contains your subscription entitlements](https://access.redhat.com/management/subscription_allocations)
 6. copy the manifest to files/manifest.zip
-7. install the requirements: ansible-galaxy install -r requirements.yml
-8. !!! COPY group_vars/all.yml.example to group_vars/all.yml and edit with all of you customization, but there are some examples to get you started. Consider this your secrets file an treat it accordingly. Do not commit it to any code repository with out encrypting it first.
+7. install the required ansible collections: ansible-galaxy install -r requirements.yml
+
+`ansible-galaxy install -r requirements.yml`
+
+
+8. !!! COPY group_vars/all.yml.example to group_vars/all.yml and edit with all of your customization like passwords and deployment config, but there are some examples to get you started. Consider this your secrets file and treat it accordingly. Do not commit it to any code repository with out encrypting it first.
+
+`cp group_vars/all.yml.example group_vars/all.yml`
+
+
 9. [OPTIONAL BUT RECOMMENDED] encrypt your secrets file: ansible-vault encrypt group_vars/all.yml . Type in a password twice. This is your vault password for this repo. It doesn't have to match the vault_pass variable in group_vars/all.yml. That is used for a credential to unlock another repo.
+
+`ansible-vault encrypt group_vars/all.yml`
+
 10. run "ansible-playbook osp-install-aap.yml" to deploy a ansible automation platform 2.5 cluster named 'aap25' into the 'aap' namespace on your openshift cluster
 11. \[OPTIONAL BUT RECOMMENDED\] run "ansible-playbook --ask-vault-pass osp-install.aap.yml" to unencrypt the secrets for the run. type in your vault password.
-12. or change the namespace and cluster name by editing the playbook or passing in extra vars: ansible-playbook -e 'project=dev-ops-ansible deployment_name=development-automation' osp-install-aap.yml. This will deploy an aap 2.5 cluster named 'development-automation' in the openshift namespace 'dev-ops-ansible'.
-13. It takes 15 mins to deploy the cluster and enther the 'CONFIG AS CODE' mode and configure the cluster for 30 more minutes. At this point the playbook will output an Openshift link to the controller pod so you can watch the logs.
-14. It will also output links to the controller so you can use/watch the cluster as it is configured.
+
+`ansible-playbook --ask-vault-pass osp-install.aap.yml`
+
+12. \[OPTIONAL\] or change the namespace and cluster name by editing the playbook or passing in extra vars: ansible-playbook -e 'project=dev-ops-ansible deployment_name=development-automation' osp-install-aap.yml. This will deploy an aap 2.5 cluster named 'development-automation' in the openshift namespace 'dev-ops-ansible'.
+
+`ansible-playbook -e 'project=dev-ops-ansible deployment_name=development-automation' osp-install-aap.yml`
+
+![Starting the aap on openshift deployment](https://raw.githubusercontent.com/syspimp/aap25/master/pics/deploy-start.png)
+
+13. It takes 15 mins to deploy the cluster and enter the 'CONFIG AS CODE' mode and configure the cluster for 30 more minutes. At this point the playbook will output an Openshift link to the controller pod so you can watch the logs. The aap cluster is available, but still being configured so look but don't edit or delete.
+
+![Config as code mode activated](https://raw.githubusercontent.com/syspimp/aap25/master/pics/aap-configascode.png)
+
+14. It will output links to the controller so you can use/watch the cluster as it is configured.
 15. It will output 'FINISHED' in approx 45 mins and output the credentials again
 16. Get links and the admin password anytime you want with: ansible-playbook osp-aap-get-admin-pass.yml
+
+`ansible-playbook osp-aap-get-admin-pass.yml`
 
 # notes
 - deploy-entitle-import.yml is the entry for this example, and some utilites for one off runs and some playbooks are just examples
