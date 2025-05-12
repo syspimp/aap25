@@ -3,7 +3,7 @@
 # TODO just use the playbook instead
 # TODO this script needs to variablize the new cluster name
 # TODO everything is hardcoded for namespace aap and cluster named aap25
-echo "this is just documentation, use deploy-entitle-import.yml playbook instead"
+echo "this is just documentation, use osp-install-aap.yml playbook instead"
 exit 0
 clustername=aap25
 oc new-project aap
