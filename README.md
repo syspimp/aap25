@@ -54,9 +54,14 @@ This uses ansible to:
 # notes
 - deploy-entitle-import.yml is the entry for this example, and wraps over other playbooks. Some of those can be run by themselves, some are utility playbooks for one off runs and some playbooks are just examples
 
-- aap25-import-workloads.yml is the playbook that performs the config as code/imports the configuration. You can use it directory against vm/bare-metal deployments, just set the tower_onosp=no tower_host=myaapcluster.example.com tower_password=keepsecret flags.
+- aap25-import-workloads.yml is the playbook that performs the config as code/imports the configuration. You can use it directory against vm/bare-metal deployments, just set the tower_onosp=no tower_host=myaapcluster.example.com tower_password=keepsecret flags. It doesn't matter if it runs on openshift or not at this point, the variables are used to construct the URL for the api call. The password is pulled from the openshift secret just for fun, which should be the same password you set for users.admin.pass variable in group_vars/all.yml:
 
 `ansible-playbook -e 'tower_osp_project=aap-west tower_osp_deployment_name=aap25-jpn' aap25-import-workloads.yml`
+
+or for vm/bare-metal deployments, set the url and password directly to override whats in group_vars/all.yml:
+
+`ansible-playbook -e 'tower_onosp=no tower_host=myaap25.example.com tower_pass=supersecret' aap25-import-workloads.yml`
+
 
 - the configuration for this aap example was exported from another, working aap cluster, and some were modified to be used as a jinja template in the templates/ directory. The unmodified exported configuration are saved/loaded from files/ directory. There is a script named 'backup-tower-config-into-objects.sh' as well as a playbook named 'aap25-export-workloads.yml' provided to export/backup an ansible tower/aap deployment and create these files. This example sets tower_host variable. It doesn't matter if it is running on openshift or not.
 
