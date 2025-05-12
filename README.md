@@ -2,10 +2,10 @@
 
 This uses ansible to:
 
-# create and destroy a clean namespace in openshift
-# install the ansible automation platform operator
-# deploy a complete aap 2.5 cluster in the namespace in 15 mins
-# apply "config as code" to configure the aap cluster
+- create and destroy a clean namespace in openshift
+- install the ansible automation platform operator
+- deploy a complete aap 2.5 cluster in the namespace in 15 mins
+- apply "config as code" to configure the aap cluster
 
 1. [Download the openshift cli client binary 'oc'](https://access.redhat.com/downloads/content/290/ver=4.18/rhel---9/4.18.11/x86_64/product-software)
 2. log into your cluster with oc: oc login
