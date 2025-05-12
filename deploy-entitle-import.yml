@@ -1,5 +1,8 @@
 ---
 # ascii generated from https://patorjk.com/software/taag/
+# all defaults are pulled from group_vars/all.yml
+# override by sending extra_vars from the command line
+# check the README for more info
 - name: Deploy aap cluster on openshift and configure
   hosts: localhost
   gather_facts: no
@@ -52,7 +55,7 @@
     tower_domain: "{{ tower.domain }}"
     tower_host: "{{ tower_osp_deployment_name }}-controller-{{ tower_osp_project }}.apps.{{ tower_domain }}"
     tower_onosp: yes
-    backupprefix: example-backup
+    backupprefix: "{{ tower.backupprefix }}"
 
 - name: the cluster is complete
   ansible.builtin.import_playbook: osp-aap-get-admin-pass.yml
