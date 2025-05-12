@@ -9,18 +9,20 @@ This uses ansible to:
 
 1. [Download the openshift cli client binary 'oc'](https://access.redhat.com/downloads/content/290/ver=4.18/rhel---9/4.18.11/x86_64/product-software)
 2. log into your cluster with oc: oc login
-3. get your redhat automation hub token:  https://console.redhat.com/ansible/automation-hub/token
+3. [get your redhat automation hub token](https://console.redhat.com/ansible/automation-hub/token)
 4. !!! COPY ansible.cfg.example to ansible.cfg and update with your token
-5. install the requirements: ansible-galaxy install -r requirements.yml
-6. !!! COPY group_vars/all.yml.example to group_vars/all.yml and edit with all of you customization, but there are some examples to get you started. Consider this your secrets file an treat it accordingly. Do not commit it to any code repository with out encrypting it first.
-7. [OPTIONAL BUT RECOMMENDED] encrypt your secrets file: ansible-vault encrypt group_vars/all.yml . Type in a password twice. This is your vault password for this repo. It doesn't have to match the vault_pass variable in group_vars/all.yml. That is used for a credential to unlock another repo.
-8. run "ansible-playbook osp-install-aap.yml" to deploy a ansible automation platform 2.5 cluster named 'aap25' into the 'aap' namespace on your openshift cluster
-9. \[OPTIONAL BUT RECOMMENDED\] run "ansible-playbook --ask-vault-pass osp-install.aap.yml" to unencrypt the secrets for the run. type in your vault password.
-8. or change the namespace and cluster name by editing the playbook or passing in extra vars: ansible-playbook -e 'project=dev-ops-ansible deployment_name=development-automation' osp-install-aap.yml. This will deploy an aap 2.5 cluster named 'development-automation' in the openshift namespace 'dev-ops-ansible'.
-9. It takes 15 mins to deploy the cluster and enther the 'CONFIG AS CODE' mode and configure the cluster for 30 more minutes. At this point the playbook will output an Openshift link to the controller pod so you can watch the logs.
-10. It will also output links to the controller so you can use/watch the cluster as it is configured.
-11. It will output 'FINISHED' in approx 45 mins and output the credentials again
-12. Get links and the admin password anytime you want with: ansible-playbook osp-aap-get-admin-pass.yml
+5. [Create and download/export manifest that contains your subscription entitlements](https://access.redhat.com/management/subscription_allocations)
+6. copy the manifest to files/manifest.zip
+7. install the requirements: ansible-galaxy install -r requirements.yml
+8. !!! COPY group_vars/all.yml.example to group_vars/all.yml and edit with all of you customization, but there are some examples to get you started. Consider this your secrets file an treat it accordingly. Do not commit it to any code repository with out encrypting it first.
+9. [OPTIONAL BUT RECOMMENDED] encrypt your secrets file: ansible-vault encrypt group_vars/all.yml . Type in a password twice. This is your vault password for this repo. It doesn't have to match the vault_pass variable in group_vars/all.yml. That is used for a credential to unlock another repo.
+10. run "ansible-playbook osp-install-aap.yml" to deploy a ansible automation platform 2.5 cluster named 'aap25' into the 'aap' namespace on your openshift cluster
+11. \[OPTIONAL BUT RECOMMENDED\] run "ansible-playbook --ask-vault-pass osp-install.aap.yml" to unencrypt the secrets for the run. type in your vault password.
+12. or change the namespace and cluster name by editing the playbook or passing in extra vars: ansible-playbook -e 'project=dev-ops-ansible deployment_name=development-automation' osp-install-aap.yml. This will deploy an aap 2.5 cluster named 'development-automation' in the openshift namespace 'dev-ops-ansible'.
+13. It takes 15 mins to deploy the cluster and enther the 'CONFIG AS CODE' mode and configure the cluster for 30 more minutes. At this point the playbook will output an Openshift link to the controller pod so you can watch the logs.
+14. It will also output links to the controller so you can use/watch the cluster as it is configured.
+15. It will output 'FINISHED' in approx 45 mins and output the credentials again
+16. Get links and the admin password anytime you want with: ansible-playbook osp-aap-get-admin-pass.yml
 
 # notes
 - deploy-entitle-import.yml is the entry for this example, and some utilites for one off runs and some playbooks are just examples
