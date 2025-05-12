@@ -62,8 +62,9 @@ or for vm/bare-metal deployments, set the url and password directly to override 
 
 `ansible-playbook -e 'tower_onosp=no tower_host=myaap25.example.com tower_pass=supersecret' aap25-import-workloads.yml`
 
+- osp-install-aap.yml this file performs the installation and can be run by itself. you can override the variable like in other examples.
 
-- the configuration for this aap example was exported from another, working aap cluster, and some were modified to be used as a jinja template in the templates/ directory. The unmodified exported configuration are saved/loaded from files/ directory. There is a script named 'backup-tower-config-into-objects.sh' as well as a playbook named 'aap25-export-workloads.yml' provided to export/backup an ansible tower/aap deployment and create these files. This example sets tower_host variable. It doesn't matter if it is running on openshift or not.
+- aap25-export-workloads.yml the configuration for this aap example was exported from another, working aap cluster, and some were modified to be used as a jinja template in the templates/ directory. The unmodified exported configuration are saved/loaded from files/ directory. There is a script named 'backup-tower-config-into-objects.sh' as well as a playbook named 'aap25-export-workloads.yml' provided to export/backup an ansible tower/aap deployment and create these files. This example sets tower_host variable. It doesn't matter if it is running on openshift or not.
 
 `ansible-playbook -e 'tower_host=aap25-vm.example.com tower_pass=supersecret' aap25-export-workloads.yml`
 
