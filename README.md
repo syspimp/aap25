@@ -54,6 +54,7 @@ This uses ansible to:
 # notes
 - deploy-entitle-import.yml is the entry for this example, and wraps over other playbooks. Some of those can be run by themselves, some are utility playbooks for one off runs and some playbooks are just examples
 
+- aap25-import-workloads.yml is the playbook that performs the config as code/imports the configuration. You can use it directory against vm/bare-metal deployments, just set the tower_onosp=no tower_host=myaapcluster.example.com tower_password=keepsecret flags.
 - the configuration for aap was exported from another, working aap cluster, and some were modified to be used as a jinja template in the templates/ directory. The unmodified exported configuration are saved/loaded from files/ directory. There is a script provided to export/backup an ansible tower/aap deployment and create these files.
 
 - look at deploy-entitle-import.yml, you can override any of those variables used in there to deploy different clusters to serve asia and europe:
@@ -71,4 +72,4 @@ This uses ansible to:
 
 `oc scale deploy aap25-eu-gateway --replicas=2`
 
-- TODO add the other playbooks to install vm/bare-metal aap deployments. Some of these playbooks work against vm/bare-metal deployments, you need to set the varibles tower_onsop=no and tower_host=myworkingtower.example.com
+- TODO add the other playbooks to install vm/bare-metal aap deployments. Some of these playbooks work against vm/bare-metal deployments, you need to set the varibles tower_onsop=no and tower_host=myworkingtower.example.com tower_password, as stated above.
