@@ -2,10 +2,10 @@
 
 This uses ansible to:
 
-- create and destroy a clean namespace in openshift
-- install the ansible automation platform operator
+- destroy and create a clean project/namespace in openshift
+- install the ansible automation platform operator in that namespace
 - deploy a complete aap 2.5 cluster in the namespace in 15 mins
-- apply "config as code" to configure the aap cluster
+- apply "config as code" to configure the new aap cluster
 
 1. [Download the openshift cli client binary 'oc'](https://access.redhat.com/downloads/content/290/ver=4.18/rhel---9/4.18.11/x86_64/product-software)
 2. log into your cluster with oc: oc login
@@ -54,9 +54,13 @@ This uses ansible to:
 # notes
 - deploy-entitle-import.yml is the entry for this example, and wraps over other playbooks. Some of those can be run by themselves, some are utility playbooks for one off runs and some playbooks are just examples
 
+- the configuration for aap was exported from another, working aap cluster, and some were modified to be used as a jinja template in the templates/ directory. The unmodified exported configuration are saved/loaded from files/ directory. There is a script provided to export/backup an ansible tower/aap deployment and create these files.
+
 - look at deploy-entitle-import.yml, you can override any of those variables used in there to deploy different clusters:
   ie to deploy two different in namespaces 'aap-east' and 'aap-west'
 
 `ansible-playbook -e 'tower_osp_project=aap-west tower_osp_deployment_name=aap25-eu' deploy-entitle-import.yml`
 
 `ansible-playbook -e 'tower_osp_project=aap-east tower_osp_deployment_name=aap25-jpn' deploy-entitle-import.yml`
+
+- TODO add the other playbooks to install vm/bare-metal aap deployments. Some of these playbooks work against vm/bare-metal deployments, you need to set the varibles tower_onsop=no and tower_host=myworkingtower.example.com
