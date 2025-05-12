@@ -72,4 +72,4 @@ This uses ansible to:
 
 `oc scale deploy aap25-eu-gateway --replicas=2`
 
-- TODO add the other playbooks to install vm/bare-metal aap deployments. Some of these playbooks work against vm/bare-metal deployments, you need to set the varibles tower_onsop=no and tower_host=myworkingtower.example.com tower_password, as stated above.
+- TODO add the other playbooks to install vm/bare-metal aap deployments. Some of these playbooks work against vm/bare-metal deployments, you need to set the varibles tower_onsop=no and tower_host=myworkingtower.example.com and tower_password=whatever, as shown and stated above.
