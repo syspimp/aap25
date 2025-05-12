@@ -42,6 +42,8 @@ tower:
 
 # below is related to this example only
 # it is for educational purposes
+# these are used for credentials like aws and gcp
+# and notifications/custom credentials_types to apply to job_templates
 
 # this is your access.redhat.com user/pass and api token. 
 # check the README for more info
