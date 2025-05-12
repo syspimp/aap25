@@ -23,6 +23,7 @@ This uses ansible to:
 # notes
 look at deploy-entitle-import.yml, you can override any of those variables used in there to deploy different clusters:
 ie to deploy two different in namespaces 'aap-east' and 'aap-west'
+
 `ansible-playbook -e 'tower_osp_project=aap-west tower_osp_deployment_name=aap25-eu' deploy-entitle-import.yml`
 
 `ansible-playbook -e 'tower_osp_project=aap-east tower_osp_deployment_name=aap25-jpn' deploy-entitle-import.yml`
