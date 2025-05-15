@@ -1,0 +1,29 @@
+---
+- name: Display system journal events
+  hosts: 10.55.102.34
+  sources:
+  - name: Watch the system journal
+    ansible.eda.journald:
+      match: "SYSLOG_FACILITY=10"
+      delay: 2
+
+  rules:
+  - name: Trigger test
+    condition: event.journald._comm == "test"
+    action:
+      debug:
+        var: event.journald.message
+
+  - name: Display event information
+    condition: event.journald._comm == "sudo"
+    action:
+      debug:
+        var: event.journald.message
+
+  - name: Watch for power outages
+    condition: >
+      event.journald._comm == "apc"
+      and 'On battery' in event.journald.message
+    action:
+      run_playbook:
+        name: event-power-out.yml
