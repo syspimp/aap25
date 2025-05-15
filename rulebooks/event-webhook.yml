@@ -1,0 +1,14 @@
+---
+- name: Write webhook messages to log file
+  hosts: localhost
+  #gather_facts: true
+  #become: true
+  vars:
+    timestamp: "{{ ansible_facts['date_time']['iso8601'] }}"
+  tasks:
+  - name: Append the incoming POST message to the log file
+    ansible.builtin.lineinfile:
+      path: webhook.log
+      line: "{{ timestamp }} {{ message }}"
+      create: true
+      mode: "0644"

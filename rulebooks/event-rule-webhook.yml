@@ -1,0 +1,17 @@
+---
+- name: Listen for events on a webhook
+  hosts: localhost
+  sources:
+  - name: Match events posted to port 5000
+    ansible.eda.webhook:
+      host: 0.0.0.0
+      port: 5000
+
+  rules:
+  - name: Print payload message to log file
+    condition: event.payload.log_status == true
+    action:
+      run_playbook:
+        name: event-webhook.yml
+        extra_vars:
+          message: "{{ event.payload.message }}"

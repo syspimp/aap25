@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    tower_host: "{{ tower.host }}"
+    tower_user: "{{ tower.user }}"
+    tower_pass: "{{ tower.pass }}"
+  tasks:
+  - name: Create EDA Projects
+    ansible.eda.project:
+      aap_hostname: "https://{{ tower_host }}/"
+      aap_username: "{{ tower_user }}"
+      aap_password: "{{ tower_pass }}"
+      name: "AAP events Project"
+      description: "infra events"
+      url: "https://github.com/syspimp/aap25"
+      organization_name: Default
+      state: present

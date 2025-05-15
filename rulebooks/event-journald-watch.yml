@@ -1,0 +1,47 @@
+---
+- name: Display system journal events
+  hosts: all
+  sources:
+  - name: Watch the system journal
+    ansible.eda.journald:
+      match: "SYSLOG_FACILITY=1"
+      delay: 2
+
+  rules:
+  - name: Trigger test
+    condition: >
+      event.journald._comm == "logger"
+      and event.jounald.message == "ping"
+    action:
+      debug:
+        msg: "pong"
+
+  - name: Display event information
+    condition: event.journald._comm == "sudo"
+    action:
+      debug:
+        var: event.journald.message
+
+  - name: Watch for power outages
+    condition: >
+      event.journald.syslog_identifier == "apc"
+      and 'On battery' in event.journald.message
+    action:
+      run_playbook:
+        name: event-power-out.yml
+
+  - name: Watch for power to return
+    condition: >
+      event.journald.syslog_identifier == "apc"
+      and 'On mains' in event.journald.message
+    action:
+      run_playbook:
+        name: event-power-returned.yml
+
+  - name: Print output of event.payload
+    condition: event.journald is defined
+    action:
+      run_module:
+        name: ansible.builtin.debug
+        module_args:
+          msg: "Default catch {{ event.journald.message }}"

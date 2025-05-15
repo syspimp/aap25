@@ -1,0 +1,7 @@
+- hosts: powerout
+  gather_facts: no
+  tasks:
+    - name: "POWER OUTAGE"
+      debug:
+        msg: |
+          Red alert!! Aaaaaaah
