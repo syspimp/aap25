@@ -13,6 +13,7 @@
         run_job_template:
           name: 'Pause X minutes'
           organization: Default
-          extra_vars:
-            x: 1
-            msg: "payload: {{ event.payload }}"
+          job_args:
+            extra_vars:
+              x: 1
+              msg: "payload: {{ event.payload }}"
