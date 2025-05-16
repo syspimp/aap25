@@ -7,10 +7,11 @@
         host: 0.0.0.0
         port: 5000
   rules:
-    - name: Print output of event.payload
+    - name: Pass event.payload to template
       condition: event.payload is defined
       action:
-        run_module:
-          name: ansible.builtin.debug
-          module_args:
-            msg: "{{ event.payload }}"
+        run_job_template:
+          name: patch-route-with-cert
+          organization: Default
+					extra_vars:
+						payload: "{{ event.payload }}"
