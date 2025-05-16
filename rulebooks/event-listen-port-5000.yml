@@ -11,7 +11,7 @@
       condition: event.payload is defined
       action:
         run_job_template:
-          name: patch-route-with-cert
+          name: 'Pause 45 mins'
           organization: Default
 					extra_vars:
 						payload: "{{ event.payload }}"
