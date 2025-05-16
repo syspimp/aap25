@@ -11,7 +11,8 @@
       condition: event.payload is defined
       action:
         run_job_template:
-          name: 'Pause 45 mins'
+          name: 'Pause X mins'
           organization: Default
           extra_vars:
-            payload: "{{ event.payload }}"
+            x: 1
+            msg: "payload: {{ event.payload }}"
