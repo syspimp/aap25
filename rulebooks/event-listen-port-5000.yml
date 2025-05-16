@@ -15,5 +15,5 @@
           organization: Default
           job_args:
             extra_vars:
-              x: 1
+              x: '1'
               msg: "payload: {{ event.payload }}"
