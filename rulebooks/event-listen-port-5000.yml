@@ -13,5 +13,5 @@
         run_job_template:
           name: 'Pause 45 mins'
           organization: Default
-					extra_vars:
-						payload: "{{ event.payload }}"
+          extra_vars:
+            payload: "{{ event.payload }}"
