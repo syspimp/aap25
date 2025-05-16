@@ -1,5 +1,0 @@
-- hosts: powerout
-  tasks:
-    - name: "Would do something on these hosts"
-      debug:
-        msg: "Click click whirrrrrr"
