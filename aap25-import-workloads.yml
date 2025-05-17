@@ -1,3 +1,4 @@
+# this file is an example of managing aap25 running on vm or in openshift
 ---
 - hosts: localhost
   connection: local

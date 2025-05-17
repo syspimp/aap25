@@ -57,6 +57,14 @@
     tower_onosp: yes
     backupprefix: "{{ tower.backupprefix }}"
 
+- name: import the event handlers into eda server
+  ansible.builtin.import_playbook: events-import-config.yml
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"
+    tower_domain: "{{ tower.domain }}"
+    tower_host: "{{ tower_osp_deployment_name }}-{{ tower_osp_project }}.apps.{{ tower_domain }}"
+
 - name: the cluster is complete
   ansible.builtin.import_playbook: osp-aap-get-admin-pass.yml
   vars:

@@ -1,0 +1,161 @@
+# this example doesn't care if aap 2.5 is running on openshift or not
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    tower_host: "{{ tower.host }}"
+    tower_user: "{{ tower.user }}"
+    tower_pass: "{{ tower.pass }}"
+    eda_projects:
+      - name: "AAP 2.5 events"
+        desc: "contains rulebooks for events"
+        url: "https://github.com/syspimp/aap25"
+        org: "Default"
+    eda_creds:
+      - name: "redhat registry credentials"
+        desc: "used to pull decision environments"
+        type: "Container Registry"
+        inputs:
+          host: "registry.redhat.io"
+          username: "{{ rhsm.user }}"
+          password: "{{ rhsm.pass }}"
+          verify_ssl: True
+        org: "Default"
+      - name: "automation controller api credentials"
+        desc: "used to interact with cluster"
+        type: "Red Hat Ansible Automation Platform"
+        inputs:
+          host: "https://{{ tower.host }}/api/controller"
+          verify_ssl: False
+          username: "{{ tower.user }}"
+          password: "{{ tower.pass }}"
+        org: "Default"
+      - name: "abc 123 event stream credentials"
+        desc: "used to post events"
+        type: "Basic Event Stream"
+        inputs:
+          auth_type: "basic"
+          http_header_key: "Authorization"
+          username: "abc"
+          password: "123"
+        org: "Default"
+    eda_de:
+      - name: "rhel9 supported de"
+        desc: "supported base decision environment"
+        cred: "redhat registry credentials"
+        url: "registry.redhat.io/ansible-automation-platform-25/de-supported-rhel9:1.1.6-9"
+        org: "Default"
+    eda_streams:
+      - name: "abc 123 event stream"
+        cred: "abc 123 event stream credentials"
+        org: "Default"
+        forward_events: True
+      - name: "datacenter events"
+        cred: "abc 123 event stream credentials"
+        org: "Default"
+        forward_events: True
+      - name: "network events"
+        cred: "abc 123 event stream credentials"
+        org: "Default"
+        forward_events: True
+      - name: "app events"
+        cred: "abc 123 event stream credentials"
+        org: "Default"
+        forward_events: True
+      - name: "vm events"
+        cred: "abc 123 event stream credentials"
+        org: "Default"
+        forward_events: True
+      - name: "activities events"
+        cred: "abc 123 event stream credentials"
+        org: "Default"
+        forward_events: True
+    eda_rulebooks:
+      - name: "datacenter event handler"
+        desc: "infrastructure and power events"
+        project: "AAP 2.5 events"
+        rulebook: "event-listen-port-5000.yml"
+        de: "rhel9 supported de"
+        org: "Default"
+        event_streams:
+        - event_stream: "datacenter events"
+          source_name: "Match events posted to port 5000"
+        eda_creds:
+          - "automation controller api credentials"
+      - name: "vm event handler"
+        desc: "virtual manchine events"
+        project: "AAP 2.5 events"
+        rulebook: "event-listen-port-5000.yml"
+        de: "rhel9 supported de"
+        org: "Default"
+        event_streams:
+        - event_stream: "vm events"
+          source_name: "Match events posted to port 5000"
+        eda_creds:
+          - "automation controller api credentials"
+      - name: "activities event handler"
+        desc: "people, places, and things events"
+        project: "AAP 2.5 events"
+        rulebook: "event-listen-port-5000.yml"
+        de: "rhel9 supported de"
+        org: "Default"
+        event_streams:
+        - event_stream: "activities events"
+          source_name: "Match events posted to port 5000"
+        eda_creds:
+          - "automation controller api credentials"
+  environment:
+    CONTROLLER_HOST: "https://{{ tower_host }}/"
+    CONTROLLER_USERNAME: "{{ tower_user }}"
+    CONTROLLER_PASSWORD: "{{ tower_pass }}"
+    CONTROLLER_VERIFY_SSL: false
+  tasks:
+  - name: Create EDA Projects
+    ansible.eda.project:
+      name: "{{ item.name }}"
+      description: "{{ item.desc }}"
+      url: "{{ item.url }}"
+      organization_name: "{{ item.org }}"
+      state: present
+    loop: "{{ eda_projects }}"
+
+  - name: Create an EDA Credential
+    ansible.eda.credential:
+      name: "{{ item.name }}"
+      description: "{{ item.desc }}"
+      inputs: "{{ item.inputs }}"
+      credential_type_name: "{{ item.type }}"
+      organization_name: Default
+    loop: "{{ eda_creds }}"
+
+  - name: Create EDA Decision Environment
+    ansible.eda.decision_environment:
+      name: "{{ item.name }}"
+      description: "{{ item.desc }}"
+      image_url: "{{ item.url }}"
+      credential: "{{ item.cred }}"
+      organization_name: "{{ item.org }}"
+      state: present
+    loop: "{{ eda_de }}"
+
+  - name: Create an EDA Event Stream
+    ansible.eda.event_stream:
+      name: "{{ item.name }}"
+      credential_name: "{{ item.cred }}"
+      organization_name: "{{ item.org }}"
+      forward_events: "{{ item.forward_events }}"
+    loop: "{{ eda_streams }}"
+
+  - name: Create a rulebook activation with event_streams option
+    ansible.eda.rulebook_activation:
+      name: "{{ item.name }}"
+      description: "{{ item.desc }}"
+      project_name: "{{ item.project }}"
+      rulebook_name: "{{ item.rulebook }}"
+      decision_environment_name: "{{ item.de }}"
+      state: enabled
+      organization_name: "{{ item.org }}"
+      event_streams: "{{ item.event_streams }}"
+      eda_credentials: "{{ item.eda_creds }}"
+    loop: "{{ eda_rulebooks }}"
