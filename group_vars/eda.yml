@@ -1,0 +1,99 @@
+---
+eda_projects:
+  - name: "AAP 2.5 events"
+    desc: "contains rulebooks for events"
+    url: "https://github.com/syspimp/aap25"
+    org: "Default"
+eda_creds:
+  - name: "redhat registry credentials"
+    desc: "used to pull decision environments"
+    type: "Container Registry"
+    inputs:
+      host: "registry.redhat.io"
+      username: "{{ rhsm.user }}"
+      password: "{{ rhsm.pass }}"
+      verify_ssl: True
+    org: "Default"
+  - name: "automation controller api credentials"
+    desc: "used to interact with cluster"
+    type: "Red Hat Ansible Automation Platform"
+    inputs:
+      host: "https://{{ tower.host }}/api/controller"
+      verify_ssl: False
+      username: "{{ tower.user }}"
+      password: "{{ tower.pass }}"
+    org: "Default"
+  - name: "abc 123 event stream credentials"
+    desc: "used to post events"
+    type: "Basic Event Stream"
+    inputs:
+      auth_type: "basic"
+      http_header_key: "Authorization"
+      username: "abc"
+      password: "123"
+    org: "Default"
+eda_de:
+  - name: "rhel9 supported de"
+    desc: "supported base decision environment"
+    cred: "redhat registry credentials"
+    url: "registry.redhat.io/ansible-automation-platform-25/de-supported-rhel9:1.1.6-9"
+    org: "Default"
+eda_streams:
+  - name: "abc 123 event stream"
+    cred: "abc 123 event stream credentials"
+    org: "Default"
+    forward_events: True
+  - name: "datacenter events"
+    cred: "abc 123 event stream credentials"
+    org: "Default"
+    forward_events: True
+  - name: "network events"
+    cred: "abc 123 event stream credentials"
+    org: "Default"
+    forward_events: True
+  - name: "app events"
+    cred: "abc 123 event stream credentials"
+    org: "Default"
+    forward_events: True
+  - name: "vm events"
+    cred: "abc 123 event stream credentials"
+    org: "Default"
+    forward_events: True
+  - name: "activities events"
+    cred: "abc 123 event stream credentials"
+    org: "Default"
+    forward_events: True
+eda_rulebooks:
+  - name: "datacenter event handler"
+    desc: "infrastructure and power events"
+    project: "AAP 2.5 events"
+    rulebook: "event-listen-port-5000.yml"
+    de: "rhel9 supported de"
+    org: "Default"
+    event_streams:
+    - event_stream: "datacenter events"
+      source_name: "Match events posted to port 5000"
+    eda_creds:
+      - "automation controller api credentials"
+  - name: "vm event handler"
+    desc: "virtual manchine events"
+    project: "AAP 2.5 events"
+    rulebook: "event-listen-port-5000.yml"
+    de: "rhel9 supported de"
+    org: "Default"
+    event_streams:
+    - event_stream: "vm events"
+      source_name: "Match events posted to port 5000"
+    eda_creds:
+      - "automation controller api credentials"
+  - name: "activities event handler"
+    desc: "people, places, and things events"
+    project: "AAP 2.5 events"
+    rulebook: "event-listen-port-5000.yml"
+    de: "rhel9 supported de"
+    org: "Default"
+    event_streams:
+    - event_stream: "activities events"
+      source_name: "Match events posted to port 5000"
+    eda_creds:
+      - "automation controller api credentials"
