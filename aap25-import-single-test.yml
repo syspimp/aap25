@@ -1,0 +1,112 @@
+# this file is an example of managing aap25 running on vm or in openshift
+---
+- hosts: localhost
+  connection: local
+  # keep on rolling if one import fails
+  # if you see AnonymousUser in the logs, a template failed and the session lost the credentials so the loops will fail but  next tasks may succeed.
+  # if you see something an ansile fatal error about NoneType, authentication probably failed and you'll see AnonymousUser in the logs
+  # successful imports will show performed by user 'admin' in the logs
+  ignore_errors: yes
+  gather_facts: no
+  vars:
+    tower_osp_project: "{{ tower.project }}"
+    tower_osp_deployment_name: "{{ tower.deployment }}"
+    tower_domain: "{{ tower.domain }}"
+    tower_host: "{{ tower_osp_deployment_name }}-controller-{{ tower_osp_project }}.apps.{{ tower_domain }}"
+    tower_user: "{{ tower.user }}"
+    tower_pass: "{{ tower.pass }}"
+    tower_onosp: "{{ tower.onosp }}"
+    # these are realated to the import static non-template configuration files
+    backups: "{{ playbook_dir }}/files"
+    backupallinone: no
+    filetype: yml
+    backupprefix: "example-backup"
+  environment:
+    AAP_HOSTNAME: "{{ tower_host }}"
+    AAP_USERNAME: "{{ tower_user }}"
+    AAP_PASSWORD: "{{ tower_pass }}"
+    AAP_VALIDATE_CERTS: false
+  collections:
+    - ansible.controller
+  tasks:
+  - name: grab the admin password from osp
+    shell: |
+      oc get secret {{ tower_osp_deployment_name }}-controller-admin-password -n {{ tower_osp_project }} -o go-template --template="{{ '{{' }}.data.password|base64decode{{ '}}' }}"
+    register: temp_tower_pass
+    when: tower_onosp | bool
+
+  - name: set admin pass if not running on osp
+    set_fact:
+      temp_tower_pass: 
+        stdout: "{{ tower_pass }}"
+    when: (tower_onosp | bool) == False
+
+  - name: Configuring AAP, takes 30 mins
+    debug:
+      msg: |
+         _██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ 
+         ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ 
+         ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗
+         ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║
+         ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝
+          ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ 
+                                                         
+           _█████╗ ███████╗                               
+           ██╔══██╗██╔════╝                               
+           ███████║███████╗                               
+           ██╔══██║╚════██║                               
+           ██║  ██║███████║                               
+           ╚═╝  ╚═╝╚══════╝                               
+                                                          
+            _██████╗ ██████╗ ██████╗ ███████╗              
+            ██╔════╝██╔═══██╗██╔══██╗██╔════╝              
+            ██║     ██║   ██║██║  ██║█████╗                
+            ██║     ██║   ██║██║  ██║██╔══╝                
+            ╚██████╗╚██████╔╝██████╔╝███████╗              
+             ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝  
+
+  - name: Grab the controller pod
+    shell: "oc get pods -n {{ tower_osp_project }} | grep {{ tower_osp_deployment_name}}-controller-web | awk '{print $1}'"
+    register: getpods
+    when: tower_onosp | bool
+
+  - name: Check the activity logs in openshift
+    debug:
+      msg: |
+        Visit 
+        https://console-openshift-console.apps.{{ tower_domain }}/k8s/ns/{{ tower_osp_project }}/pods/{{ getpods.stdout }}/logs
+        or type in another terminal
+        oc get pods
+        oc logs {{ getpods.stdout }} -n {{ tower_osp_project }} -f
+        [hit ctrl-c to stop following the logs in that terminal]
+    when: tower_onosp | bool
+
+  - name: handle each object separately
+    block:
+    - name: Test import using ansible.platform teams module
+      ansible.platform.team:
+        name: Test name
+        description: Test description
+        organization: Default
+      environment:
+        AAP_PASSWORD: "{{ temp_tower_pass.stdout }}"
+
+#    - name: Loop over assets from templates into new controller
+#      ansible.controller.import:
+#        assets: "{{ lookup('ansible.builtin.template', '{{ item }}.{{ filetype }}.j2') | from_yaml() }}"
+#      environment:
+#        AAP_PASSWORD: "{{ temp_tower_pass.stdout }}"
+#      loop:
+#        - just-credentials
+
+
+  - name: Visit the GUI link in the output
+    debug:
+      msg: |
+        ███████╗██╗███╗   ██╗██╗███████╗██╗  ██╗███████╗██████╗ ██╗
+        ██╔════╝██║████╗  ██║██║██╔════╝██║  ██║██╔════╝██╔══██╗██║
+        █████╗  ██║██╔██╗ ██║██║███████╗███████║█████╗  ██║  ██║██║
+        ██╔══╝  ██║██║╚██╗██║██║╚════██║██╔══██║██╔══╝  ██║  ██║╚═╝
+        ██║     ██║██║ ╚████║██║███████║██║  ██║███████╗██████╔╝██╗
+        ╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚═════╝ ╚═╝
+                                                                   
