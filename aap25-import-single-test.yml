@@ -28,6 +28,7 @@
     AAP_VALIDATE_CERTS: false
   collections:
     - ansible.controller
+    - ansible.platform
   tasks:
   - name: grab the admin password from osp
     shell: |
