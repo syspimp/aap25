@@ -16,4 +16,4 @@
           job_args:
             extra_vars:
               x: '1'
-              msg: "payload: {{ event.payload }}"
+              msg: "payload: {{ event.payload.results._raw }}"
