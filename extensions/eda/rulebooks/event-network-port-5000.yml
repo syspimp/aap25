@@ -9,7 +9,8 @@
   rules:
     - name: Check for network events
       condition: 
-        - "'DHCPACK' in event.payload.results._raw"
+        all:
+          - "'DHCPACK' in event.payload.results._raw"
       action:
         run_job_template:
           name: 'Network Event Handler'
@@ -21,7 +22,8 @@
 
     - name: Check for DNS events
       condition: 
-        - "'updating zone' in event.payload.results._raw"
+        all:
+          - "'updating zone' in event.payload.results._raw"
       action:
         run_job_template:
           name: 'DNS Event Handler'
