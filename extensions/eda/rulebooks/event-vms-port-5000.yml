@@ -9,7 +9,7 @@
   rules:
     - name: Check for sudo events
       condition: 
-        - "SUDO" in event.payload.results._raw
+        - "'SUDO' in event.payload.results._raw"
       action:
         run_job_template:
           name: 'Sudo Event Handler'
@@ -21,7 +21,7 @@
 
     - name: Check for DNS events
       condition: 
-        - "updating zone" in event.payload.results._raw
+        - "'updating zone' in event.payload.results._raw"
       action:
         run_job_template:
           name: 'DNS Event Handler'
