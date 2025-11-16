@@ -1,7 +1,20 @@
-- hosts: powerout
-  gather_facts: no
-  tasks:
-    - name: "POWER OUTAGE"
-      debug:
-        msg: |
-          Red alert!! Aaaaaaah
+- name: Listen for power events on a webhook
+  hosts: all
+  sources:
+    - name: Match events posted to port 5000
+      ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+  rules:
+    - name: Check for network events
+      condition: 
+        - "'apc down' in event.payload.results._raw"
+      action:
+        run_job_template:
+          name: 'Power Event Handler'
+          organization: Default
+          job_args:
+            extra_vars:
+              msghost: "{{ event.payload.results.host }}"
+              msgpayload: "{{ event.payload.results._raw }}"
+
