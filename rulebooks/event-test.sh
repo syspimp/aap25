@@ -1,9 +1,11 @@
 #!/bin/bash -x
-host="https://abc:123@aap25-eu-aap-west.apps.compute7-cluster.tfound.org"
-edastream="eda-event-streams/api/eda/v1/external_event_stream/69ccc3cc-b0d6-47d3-8fab-0a29d966a6ce/post/"
+host="https://abc:123@aap25-gw.tfound.org"
+#host="https://abc:123@eastcoast-aap25-prod.apps.compute7-cluster.tfound.org"
+edastream="eda-event-streams/api/eda/v1/external_event_stream/7cece50c-dfc6-497d-8a38-d052159fd00e/post/"
+#edastream="eda-event-streams/api/eda/v1/external_event_stream/7662fe74-6177-4bad-945e-41d2242fc659/post/"
 msg="test123 from the cmd line"
-event="null event"
-status="null status"
+event="this is the event field"
+status="this is the status field"
 if [[ ! -z "$1" ]]
 then
   event="$1"

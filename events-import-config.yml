@@ -15,6 +15,7 @@
     CONTROLLER_PASSWORD: "{{ tower_pass }}"
     CONTROLLER_VERIFY_SSL: false
   tasks:
+  # try a couple of times to wake up the eda server
   - name: Create EDA Projects
     ansible.eda.project:
       name: "{{ item.name }}"
@@ -23,6 +24,9 @@
       organization_name: "{{ item.org }}"
       state: present
     loop: "{{ eda_projects }}"
+    #register: _result
+    #retries: 6
+    #delay: 5
 
   - name: Create EDA Credentials
     ansible.eda.credential:

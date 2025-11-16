@@ -86,7 +86,7 @@
     block:
     - name: Test import using ansible.platform teams module
       ansible.platform.team:
-        name: Test name
+        name: Test2 name
         description: Test description
         organization: Default
       environment:

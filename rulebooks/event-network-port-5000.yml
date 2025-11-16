@@ -1,0 +1,32 @@
+---
+- name: Listen for network events on a webhook
+  hosts: all
+  sources:
+    - name: Match events posted to port 5000
+      ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+  rules:
+    - name: Check for network events
+      condition: 
+        - "DHCPACK" in event.payload.results._raw
+      action:
+        run_job_template:
+          name: 'Network Event Handler'
+          organization: Default
+          job_args:
+            extra_vars:
+              msghost: "{{ event.payload.results.host }}"
+              msgpayload: "{{ event.payload.results._raw }}"
+
+    - name: Check for DNS events
+      condition: 
+        - "updating zone" in event.payload.results._raw
+      action:
+        run_job_template:
+          name: 'DNS Event Handler'
+          organization: Default
+          job_args:
+            extra_vars:
+              msghost: "{{ event.payload.results.host }}"
+              msgpayload: "{{ event.payload.results._raw }}"

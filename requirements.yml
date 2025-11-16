@@ -1,9 +1,16 @@
 ---
-# to install, ansible-galaxy install -r requirements.yml
+# to install, ansible-galaxy collection install -r requirements.yml
 collections:
+  - name: ansible.eda
   - name: redhat.openshift
     version: ">=4.0.1"
   - name: kubernetes.core
     version: ">=5.2.0"
   - name: ansible.controller
-    version: ">=4.6.11"
+    version: ">=4.6.16"
+# sudo subscription-manager repos --enable=ansible-automation-platform-2.5-for-rhel-9-x86_64-rpms
+#sudo dnf -y install krb5-devel
+#pip install -r https://raw.githubusercontent.com/ansible/event-driven-ansible/refs/heads/main/requirements.txt
+#sudo dnf -y groupinstall "Development Tools"
+#pip install -r https://raw.githubusercontent.com/ansible/event-driven-ansible/refs/heads/main/requirements.txt
+#sudo dnf -y install python3-devel

@@ -19,6 +19,7 @@
     
     rescue:
     - name: "do you really want to do this? be explicit"
+      debug:
         msg: |
           this will destroy the namespace {{ project }}. if you really want to do this, rerun the playbook setting the destroy parameter to true/yes.
           ansible-playbook -e 'destroy=yes' osp-destroy-aap.yml
