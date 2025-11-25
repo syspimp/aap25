@@ -8,8 +8,7 @@
         port: 5000
   rules:
     - name: Check for sudo events
-      condition: 
-        - "'SUDO' in event.payload.results._raw"
+      condition: "'SUDO' in event.payload.results._raw"
       action:
         run_job_template:
           name: 'Sudo Event Handler'
@@ -19,14 +18,3 @@
               msghost: "{{ event.payload.results.host }}"
               msgpayload: "{{ event.payload.results._raw }}"
 
-    - name: Check for DNS events
-      condition: 
-        - "'updating zone' in event.payload.results._raw"
-      action:
-        run_job_template:
-          name: 'DNS Event Handler'
-          organization: Default
-          job_args:
-            extra_vars:
-              msghost: "{{ event.payload.results.host }}"
-              msgpayload: "{{ event.payload.results._raw }}"
