@@ -8,7 +8,7 @@
         port: 5000
   rules:
     - name: Check for network events
-      condition: "'DHCPACK' in event.payload.results._raw"
+      condition: event.payload.results._raw is search('DHCPACK',ignorecase=true)
       action:
         run_job_template:
           name: 'Network Event Handler'
@@ -19,7 +19,7 @@
               msgpayload: "{{ event.payload.results._raw }}"
 
     - name: Check for DNS events
-      condition: "'updating zone' in event.payload.results._raw"
+      condition: event.payload.results._raw is search('updating zone',ignorecase=true)
       action:
         run_job_template:
           name: 'DNS Event Handler'
