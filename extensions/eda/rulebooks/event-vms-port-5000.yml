@@ -21,7 +21,7 @@
       condition: event.payload.results._raw is search('sudo',ignorecase=false)
       action:
         run_job_template:
-          name: 'Sudo Event Handler'
+          name: 'Sudoers Event Handler'
           organization: Default
           job_args:
             extra_vars:
