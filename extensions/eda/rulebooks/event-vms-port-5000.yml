@@ -7,8 +7,18 @@
         host: 0.0.0.0
         port: 5000
   rules:
+#    - name: Pass event.payload to template
+#      condition: event.payload is defined
+#      action:
+#        run_job_template:
+#          name: 'Pause X minutes'
+#          organization: Default
+#          job_args:
+#            extra_vars:
+#              x: '1'
+#              msg: "payload: {{ event.payload.results._raw }}"
     - name: Check for sudo events
-      condition: event.payload.results._raw is search('SUDO',ignorecase=false)
+      condition: event.payload.results._raw is search('sudo',ignorecase=false)
       action:
         run_job_template:
           name: 'Sudo Event Handler'
